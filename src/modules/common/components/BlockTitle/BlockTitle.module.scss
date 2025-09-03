@@ -1,0 +1,11 @@
+.container {
+	color: var(--main-text);
+	font-size: 30px;
+	font-weight: 400;
+	margin-bottom: 24px;
+	text-transform: uppercase;
+
+	@include media($laptop-bp) {
+		font-size: 26px;
+	}
+}

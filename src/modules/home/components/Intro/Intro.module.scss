@@ -1,0 +1,65 @@
+.container {
+	@include flex(center, space-between, 29px);
+	padding-block: 100px 150px;
+	position: relative;
+	max-height: 900px;
+	height: 100vh;
+	margin-top: -122px;
+
+	@media only screen and (max-height: 700px) {
+		min-height: 100vh;
+	}
+
+	@include media($mobile-bp) {
+		max-height: 600px;
+	}
+}
+
+.info {
+	@include flex(flex-start, center, 50px);
+	flex-direction: column;
+	text-align: left;
+	max-width: 737px;
+	position: relative;
+	z-index: 2;
+	color: var(--white);
+
+	@include media($mobile-bp) {
+		gap: 24px;
+	}
+
+	&Title {
+		font-size: 56px;
+		font-weight: 800;
+
+		@include media($mobile-bp) {
+			font-size: 32px;
+		}
+	}
+
+	&Desc {
+		max-width: 435px;
+		font-size: 20px;
+		font-weight: 500;
+
+		@include media($mobile-bp) {
+			font-size: 16px;
+		}
+	}
+}
+
+.poster {
+	z-index: 0;
+	display: block;
+	position: absolute;
+	height: 100%;
+	left: calc((100% - 100vw) / 2);
+	top: 0;
+	width: 100vw;
+	object-fit: cover;
+
+	@include media(2100px, min) {
+		left: calc((100% - 2100px) / 2);
+		width: 2100px;
+	}
+}

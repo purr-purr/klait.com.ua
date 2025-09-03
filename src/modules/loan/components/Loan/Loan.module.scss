@@ -1,0 +1,7 @@
+.container {
+	margin-block: 80px;
+
+	@include media($mobile-bp) {
+		margin-block: 40px;
+	}
+}

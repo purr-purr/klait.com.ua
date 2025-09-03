@@ -1,0 +1,14 @@
+.container {
+	border: none;
+	width: 57px;
+	height: 57px;
+	padding: 20px 15px;
+	background-color: var(--primary);
+	border-radius: 16px;
+
+	img {
+		width: 26px;
+		height: 17px;
+		transform: scale(1.5);
+	}
+}

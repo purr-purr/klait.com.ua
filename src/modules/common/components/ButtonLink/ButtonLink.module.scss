@@ -1,0 +1,26 @@
+.container {
+	all: unset;
+	display: block;
+	width: fit-content;
+	cursor: pointer;
+	text-transform: uppercase;
+	margin-top: 24px;
+	color: var(--white);
+	padding: 22px 30px;
+	background-color: var(--primary);
+	border-radius: 4px;
+	font-weight: 700;
+	font-size: 16px;
+	transition: all 0.3s ease-in-out;
+
+	@include media($mobile-bp) {
+		font-size: 14px;
+	}
+
+	&:hover {
+		opacity: 1;
+		color: var(--primary);
+		background-color: var(--main-text);
+		transition: all 0.3s ease-in-out;
+	}
+}

@@ -1,0 +1,28 @@
+.container {
+	list-style-type: none;
+
+	& li:not(:last-child) {
+		margin-bottom: 16px;
+	}
+}
+
+.title {
+	text-align: center;
+	font-weight: 500;
+	margin-bottom: 4px;
+}
+
+.range {
+	@include flex(center, space-between);
+}
+
+.title,
+.range {
+	font-size: 16px;
+	line-height: 20px;
+
+	@include media($mobile-bp) {
+		font-size: 14px;
+		line-height: 18px;
+	}
+}
