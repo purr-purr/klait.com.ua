@@ -1,12 +1,21 @@
 import { APP_AUTHOR_SIGNATURE, APP_AUTHOR_WEBSITE } from '@utils/const';
 
 import s from './Footer.module.scss';
+import BlockContainer from '@modules/layout/components/BlockContainer';
+import Logo from '@modules/common/components/Logo';
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
 
 	return (
-		<footer className={s.container}>
+		<BlockContainer
+			innerClassName={s.container}
+			isBlueBackground
+			containerElementTag="footer"
+		>
+			<Logo/>
+			<p>Товариство з обмеженою відповідальністю <br/> «Київський ліцей
+				авіаційних та інформаційних технологій» </p>
 			<p>{currentYear}/ Всі права захищені</p>
 			<p>
 				Розробка сайту{' '}
@@ -14,7 +23,7 @@ const Footer = () => {
 					{APP_AUTHOR_SIGNATURE}
 				</a>
 			</p>
-		</footer>
+		</BlockContainer>
 	);
 };
 

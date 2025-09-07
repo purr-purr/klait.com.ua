@@ -1,13 +1,10 @@
 .container {
-	@include flex($align: center, $gap: 40px);
-	list-style-type: none;
-
-	@include media($laptop-bp) {
-		display: none;
-	}
+	@include flex($align: center);
 
 	&.active {
-		display: block;
+		display: flex;
+		flex-direction: column;
+		align-items: baseline;
 		position: absolute;
 		width: 364px;
 		height: 100vh;
@@ -16,7 +13,7 @@
 		top: 0;
 		padding-top: 80px;
 		padding-left: 40px;
-		z-index: 1;
+		z-index: 2;
 
 		& .link {
 			color: var(--white);
@@ -26,29 +23,61 @@
 			width: calc(100% + 80px);
 			left: -40px;
 		}
+
+		&:before {
+			content: ' ';
+			position: absolute;
+			top: 0;
+			z-index: 1;
+			left: -100vw;
+			width: 100vw;
+			height: 100vh;
+			background: rgba(0, 0, 0, 0.5);
+			-webkit-backdrop-filter: blur(10px);
+			backdrop-filter: blur(10px);
+			transition: background-color 0.2s ease-in-out;
+			pointer-events: none;
+		}
 	}
+
+	@include media($laptop-bp) {
+		display: none;
+	}
+
+	button {
+		position: absolute;
+		right: 40px;
+		top: 0;
+	}
+}
+
+.list {
+	list-style-type: none;
+	margin-top: 50px;
 }
 
 .box {
 	width: max-content;
+	margin-bottom: 32px;
 }
 
 .link {
 	all: unset;
 	cursor: pointer;
-	font-size: 16px;
-	font-weight: 700;
+	font-size: 20px;
+	font-weight: 500;
 	color: var(--white);
-	text-transform: uppercase;
 	transition: all 0.3s ease-in-out;
 
 	@include pseudo(after) {
-		right: 0;
-		bottom: -4px;
-		width: 0;
-		height: 2px;
-		background-color: var(--primary);
-		transition: width 0.3s ease-in-out;
+		right: -30px;
+		bottom: -1px;
+		width: 25px;
+		height: 25px;
+		opacity: 0;
+		transform: translateX(-20px);
+		background: url('../../../../../public/assets/icon-arrow-left.svg') no-repeat, center center;
+		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	}
 
 	@include media($laptop-bp) {
@@ -66,12 +95,24 @@
 		opacity: 1;
 
 		&:after {
-			width: 100%;
-			transition: width 0.3s ease-in-out;
+			opacity: 1;
+			transform: translateX(0);
+			transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 		}
 	}
+}
 
-	&.whiteMode {
-		color: var(--main-text);
+.contacts {
+	flex-grow: 1;
+	align-content: flex-end;
+	margin-bottom: 40px;
+	padding-right: 60px;
+
+	a, p {
+		display: block;
+		text-decoration: none;
+		font-size: 14px;
+		color: var(--white);
+		margin-top: 16px;
 	}
 }

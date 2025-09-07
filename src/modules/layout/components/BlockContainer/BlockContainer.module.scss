@@ -1,0 +1,7 @@
+.container {
+	background-color: var(--blue-bg);
+}
+
+.inner {
+	@include container();
+}

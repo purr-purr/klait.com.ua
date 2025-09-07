@@ -26,12 +26,12 @@
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: var(--primary);
+		background-color: var(--main-text);
 		border-radius: 50px;
 	}
 
 	&::-webkit-scrollbar-track-piece {
-		background-color: var(--main-bg);
+		background-color: var(--blue-bg);
 	}
 }
 

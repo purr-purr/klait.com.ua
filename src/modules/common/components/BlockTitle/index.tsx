@@ -4,16 +4,21 @@ import s from './BlockTitle.module.scss';
 
 const BlockTitle: FC<{
 	title: string;
-	isHighlighted: boolean;
+	isHighlighted?: boolean;
 }> = ({
 	title,
 	isHighlighted = true
 }) => {
-	const formatTitle = title;
-	const textWithoutLastWord = title.trim().split(" ").slice(0, -1).join(" ");
-	const lastWord = title.trim().split(" ").pop();
-	const element = createElement('span', title)
-	return <h2 className={s.container}>{formatTitle + ' ' + element}</h2>;
+	const titleWithoutLastWord = title.trim().split(" ").slice(0, -1).join(" ");
+	const lastWord = " " + title.trim().split(" ").pop();
+	const lastElement = createElement('span', {className: s.highlight}, lastWord);
+
+	return createElement(
+		"h2",
+		{className: s.container},
+		isHighlighted ? titleWithoutLastWord : title,
+		isHighlighted && lastElement
+	);
 };
 
 export default BlockTitle;

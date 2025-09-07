@@ -1,14 +1,32 @@
 .container {
 	border: none;
-	width: 57px;
-	height: 57px;
-	padding: 20px 15px;
 	background-color: var(--primary);
 	border-radius: 16px;
 
+	&--open {
+		width: 57px;
+		height: 57px;
+		padding: 20px 15px;
+
+		img {
+			width: 26px;
+			height: 17px;
+		}
+	}
+
+	&--close {
+		width: 72px;
+		height: 72px;
+		padding: 20px;
+
+		img {
+			width: 32px;
+			height: 32px;
+		}
+	}
+
 	img {
-		width: 26px;
-		height: 17px;
+
 		transform: scale(1.5);
 	}
 }

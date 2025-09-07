@@ -5,6 +5,7 @@
 	z-index: 99;
 	width: 100%;
 	padding-block: 32px;
+	min-height: 121px;
 	@include flex(center, space-between, 24px);
 
 	@include media($mobile-bp) {
@@ -27,4 +28,8 @@
 		backdrop-filter: blur(15px);
 		transition: background-color 0.2s ease-in-out;
 	}
+}
+
+.inner {
+	@include flex(center, space-between);
 }

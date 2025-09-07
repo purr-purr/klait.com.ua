@@ -1,8 +1,6 @@
-import s from './Contacts.module.scss';
+import s from './Events.module.scss';
 import {
 	COMPANY_ADDRESS,
-	COMPANY_DISPLAYED_PHONE,
-	COMPANY_MAP_EMBED_LINK,
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE
@@ -11,40 +9,31 @@ import BlockTitle from '@modules/common/components/BlockTitle';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 import BlockHeader from '@modules/common/components/BlockHeader';
 
-const Contacts = () => {
+const Events = () => {
 	return (
-		<BlockContainer innerClassName={s.container} isBlueBackground>
-			<BlockHeader subTitle="Контакти">
-				<BlockTitle title="Залишились питання?" isHighlighted={false}/>
+		<BlockContainer innerClassName={s.container}>
+			<BlockHeader subTitle="Події">
+				<BlockTitle title="Життя школи в кожній події"/>
 			</BlockHeader>
 
 			<div className={s.inner}>
 				<article className={s.info}>
 					<dl className={s.infoInner}>
 						<dt>Контактний телефон</dt>
-						<br/>
-						<dd>
-							<a href={`tel:${COMPANY_PHONE}`} target="_blank"
-							   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
-						</dd>
+						<dd>{COMPANY_PHONE}</dd>
 						<br/>
 						<dt>Графік роботи</dt>
-						<br/>
 						<dd>{COMPANY_SCHEDULE}</dd>
 						<br/>
 						<dt>Адреса</dt>
-						<br/>
-						<dd>
-							<a href={COMPANY_MAP_LINK} target="_blank"
-							   rel="noreferrer">{COMPANY_ADDRESS}</a>
-						</dd>
+						<dd>{COMPANY_ADDRESS}</dd>
 					</dl>
 				</article>
 
 				<div className={s.map}>
 					<iframe
 						className={s.mapFrame}
-						src={COMPANY_MAP_EMBED_LINK}
+						src={COMPANY_MAP_LINK}
 						allowFullScreen={true}
 						loading="lazy"
 						referrerPolicy="no-referrer-when-downgrade"
@@ -55,4 +44,4 @@ const Contacts = () => {
 	);
 };
 
-export default Contacts;
+export default Events;

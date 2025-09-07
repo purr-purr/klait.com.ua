@@ -1,5 +1,5 @@
 .container {
-	@include flex($justify: space-between);
+	@include flex(flex-end);
 	padding-top: 40px;
 	padding-bottom: 40px;
 
@@ -17,6 +17,15 @@
 
 	p,
 	a {
+		line-height: 1.8;
 		color: var(--main-text);
+	}
+
+	p {
+		margin-left: 24px;
+
+		&:not(:first-of-type) {
+			margin-left: auto;
+		}
 	}
 }

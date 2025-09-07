@@ -1,0 +1,19 @@
+.container {
+	@include flex(flex-start, space-between);
+}
+
+.subTitle {
+	color: var(--primary);
+	font-size: 16px;
+	font-weight: 700;
+	font-family: 'Montseratt', sans-serif;
+	margin-top: 5px;
+
+	@include pseudo() {
+		left: -33px;
+		top: -3px;
+		width: 27px;
+		height: 24px;
+		background: url('../../../../../public/assets/title.svg') no-repeat, center center;
+	}
+}
