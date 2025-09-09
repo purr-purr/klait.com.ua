@@ -45,9 +45,7 @@
 	}
 
 	button {
-		position: absolute;
-		right: 40px;
-		top: 0;
+
 	}
 }
 
@@ -108,6 +106,10 @@
 	margin-bottom: 40px;
 	padding-right: 60px;
 
+	&Button {
+		margin-top: 40px;
+	}
+
 	a, p {
 		display: block;
 		text-decoration: none;
@@ -115,4 +117,8 @@
 		color: var(--white);
 		margin-top: 16px;
 	}
+
+	//a:hover {
+	//	color: var(--second-primary);
+	//}
 }

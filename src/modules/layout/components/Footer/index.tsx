@@ -13,7 +13,7 @@ const Footer = () => {
 			isBlueBackground
 			containerElementTag="footer"
 		>
-			<Logo/>
+			<Logo className={s.logo}/>
 			<p>Товариство з обмеженою відповідальністю <br/> «Київський ліцей
 				авіаційних та інформаційних технологій» </p>
 			<p>{currentYear}/ Всі права захищені</p>

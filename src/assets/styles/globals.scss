@@ -56,18 +56,6 @@ button {
 	font-family: 'Montseratt', sans-serif;
 }
 
-a {
-	scroll-margin-top: 100px;
-	text-decoration: underline;
-	transition: opacity 0.3s ease-in-out;
-
-	&:hover {
-		text-decoration: none;
-		opacity: 0.7;
-		transition: opacity 0.3s ease-in-out;
-	}
-}
-
 h1, h2, h3, h4, h5 {
 	font-family: "Unbounded", sans-serif;
 }
@@ -84,6 +72,20 @@ a {
 
 	@include media($mobile-bp) {
 		font-size: 14px;
+	}
+}
+
+a {
+	scroll-margin-top: 100px;
+	text-decoration: underline;
+	transition: opacity 0.3s ease-in-out;
+
+	&:hover {
+		color: var(--second-primary);
+		text-decoration: none;
+		//opacity: 0.7;
+		//transition: opacity 0.3s ease-in-out;
+		transition: color 0.3s ease-in-out;
 	}
 }
 

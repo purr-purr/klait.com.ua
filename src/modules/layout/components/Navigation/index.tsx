@@ -19,6 +19,7 @@ import {
 	MOBILE_BREAKPOINT
 } from '@utils/const';
 import Logo from '@modules/common/components/Logo';
+import Button from '@modules/common/components/Button';
 
 const Navigation = () => {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
@@ -87,6 +88,9 @@ const Navigation = () => {
 						<p>{COMPANY_SCHEDULE}</p>
 						<a href={COMPANY_MAP_LINK} target="_blank"
 						   rel="noreferrer">{COMPANY_ADDRESS}</a>
+
+						<Button className={s.contactsButton} text="Записатись на зустріч"
+						        type="white"/>
 					</div>
 				</nav>
 			)}

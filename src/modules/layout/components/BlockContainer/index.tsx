@@ -20,12 +20,12 @@ const BlockContainer: FC<{
 	return createElement(
 		containerElementTag,
 		{
-			className: cn(isBlueBackground && s.container, containerClassName && containerClassName)
+			className: cn(isBlueBackground && s.container, containerClassName)
 		},
 		createElement(
 			innerElementTag,
 			{
-				className: cn(s.inner, innerClassName && innerClassName)
+				className: cn(s.inner, innerClassName)
 			},
 			children
 		)

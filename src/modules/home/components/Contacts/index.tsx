@@ -10,6 +10,7 @@ import {
 import BlockTitle from '@modules/common/components/BlockTitle';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 import BlockHeader from '@modules/common/components/BlockHeader';
+import Button from '@modules/common/components/Button';
 
 const Contacts = () => {
 	return (
@@ -39,6 +40,8 @@ const Contacts = () => {
 							   rel="noreferrer">{COMPANY_ADDRESS}</a>
 						</dd>
 					</dl>
+
+					<Button text="Записатись на зустріч"/>
 				</article>
 
 				<div className={s.map}>

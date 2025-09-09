@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import s from './BlockHeader.module.scss';
 
 const BlockHeader: FC<{
-	children: ReactNode;
+	children?: ReactNode;
 	subTitle: string;
 }> = ({
 	children,
@@ -11,7 +11,7 @@ const BlockHeader: FC<{
 }) => {
 	return (
 		<div className={s.container}>
-			{children}
+			{children && children}
 			<h3 className={s.subTitle}>{subTitle}</h3>
 		</div>
 	);

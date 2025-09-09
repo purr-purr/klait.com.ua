@@ -8,7 +8,7 @@ export const APP_LINK: string = 'https://www.klait.com.ua/';
 export const COMPANY_NAME: string[] = ['KLA', 'IT'];
 export const COMPANY_FULL_NAME: string = `${COMPANY_NAME[0]} ${COMPANY_NAME[1]}`;
 export const COMPANY_CATCHPHRASE: string =
-	'Пропонуємо зрозумілі та прозорі фінансові рішення без зайвих складнощів';
+	'Початкова школа, де дітей бачать, чують і розвивають із любов’ю та знанням справи.';
 export const COMPANY_PHONE: string = '+380952323325';
 export const COMPANY_DISPLAYED_PHONE: string = '+380 (95) 23 23 325';
 export const COMPANY_SCHEDULE: string = 'пн-пт з 08:00 до 17:00';

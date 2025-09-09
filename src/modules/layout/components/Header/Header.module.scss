@@ -4,8 +4,8 @@
 	left: 0;
 	z-index: 99;
 	width: 100%;
-	padding-block: 32px;
-	min-height: 121px;
+	padding-block: 16px;
+	min-height: 89px;
 	@include flex(center, space-between, 24px);
 
 	@include media($mobile-bp) {

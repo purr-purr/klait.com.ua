@@ -2,8 +2,8 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 import s from './Logo.module.scss';
-import LOGO from '@public/assets/logo.svg';
-import LOGO_WHITE from '@public/assets/logo--white.svg';
+import LOGO from '@public/assets/logo.png';
+import LOGO_WHITE from '@public/assets/logo--white.png';
 import { FC } from 'react';
 import cn from 'classnames';
 

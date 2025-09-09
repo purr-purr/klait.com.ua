@@ -1,0 +1,41 @@
+.container {
+	padding-block: 112px 150px;
+}
+
+.inner {
+	@include flex($gap: 39px);
+}
+
+.intro {
+	@include flex;
+	flex-direction: column;
+	max-width: 449px;
+	width: 100%;
+	padding-bottom: 36px;
+}
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
+	gap: 25px;
+
+	&Item {
+		@include flex($gap: 12px);
+		padding: 40px 40px 40px 12px;
+		border-radius: 16px;
+		background-color: var(--blue-bg);
+
+		h4 {
+			font-size: 20px;
+			font-weight: 700;
+			margin-bottom: 16px;
+		}
+	}
+
+	&Icon {
+		display: block;
+		width: 80px;
+		height: 80px;
+	}
+}

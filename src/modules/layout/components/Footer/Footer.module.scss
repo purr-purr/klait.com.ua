@@ -9,10 +9,13 @@
 		gap: 16px;
 	}
 
+	.logo {
+		margin-block: auto;
+	}
+
 	a {
-		all: unset;
-		cursor: pointer;
 		font-weight: 700;
+		text-decoration: none;
 	}
 
 	p,

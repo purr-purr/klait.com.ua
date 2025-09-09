@@ -1,10 +1,7 @@
 .container {
-	@include flex(center, space-between, 29px);
-	padding-block: 100px 150px;
-	position: relative;
-	max-height: 900px;
-	height: 100vh;
-	margin-top: -122px;
+	height: 900px;
+	margin-top: -89px;
+	background: #F4F6FA linear-gradient(176deg, #F4F6FA 0%, #F2F2FC 68%, #e0daf9 100%);
 
 	@media only screen and (max-height: 700px) {
 		min-height: 100vh;
@@ -15,32 +12,52 @@
 	}
 }
 
+.inner {
+	@include flex($align: center);
+	position: relative;
+	height: 100%;
+}
+
 .info {
-	@include flex(flex-start, center, 50px);
+	@include flex(flex-start, center, 48px);
 	flex-direction: column;
 	text-align: left;
 	max-width: 737px;
 	position: relative;
 	z-index: 2;
-	color: var(--white);
+	color: var(--main-text);
 
 	@include media($mobile-bp) {
 		gap: 24px;
 	}
 
 	&Title {
-		font-size: 56px;
-		font-weight: 800;
+		font-size: 50px;
+		font-weight: 400;
+		text-transform: uppercase;
+		max-width: 708px;
+		@include pseudo() {
+			left: -82px;
+			top: -87px;
+			width: 206px;
+			height: 160px;
+			background: url("../../assets/title-decoration.png") no-repeat center center;
+			z-index: -1;
+		}
 
 		@include media($mobile-bp) {
 			font-size: 32px;
 		}
+
+		span {
+			font-weight: 700;
+			color: var(--primary);
+		}
 	}
 
 	&Desc {
-		max-width: 435px;
+		max-width: 460px;
 		font-size: 20px;
-		font-weight: 500;
 
 		@include media($mobile-bp) {
 			font-size: 16px;
@@ -53,13 +70,8 @@
 	display: block;
 	position: absolute;
 	height: 100%;
-	left: calc((100% - 100vw) / 2);
-	top: 0;
-	width: 100vw;
-	object-fit: cover;
-
-	@include media(2100px, min) {
-		left: calc((100% - 2100px) / 2);
-		width: 2100px;
-	}
+	right: 0;
+	bottom: 0;
+	max-width: 971px;
+	max-height: 801px;
 }

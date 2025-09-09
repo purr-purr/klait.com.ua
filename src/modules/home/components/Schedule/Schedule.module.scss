@@ -1,0 +1,57 @@
+.container {
+	padding-block: 150px;
+}
+
+.inner {
+	border-radius: 16px;
+	background-color: var(--blue-bg);
+	padding: 40px;
+	position: relative;
+
+	@include pseudo(after) {
+		top: -89px;
+		right: -143px;
+		width: 485px;
+		height: 344px;
+		background: url("../../assets/schedule-plane.png") no-repeat center center;
+		background-size: 100% 100%;
+		z-index: 1;
+	}
+
+	@include pseudo(before) {
+		bottom: -56px;
+		left: -70px;
+		width: 152px;
+		height: 169px;
+		background: url("../../assets/schedule-signature.png") no-repeat center center;
+		background-size: 100% 100%;
+		z-index: 1;
+	}
+}
+
+.title {
+	font-family: 'Montseratt', sans-serif;
+	font-size: 20px;
+	margin-bottom: 24px;
+}
+
+.list {
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	grid-template-rows: repeat(2, auto);
+	row-gap: 12px;
+	column-gap: 24px;
+	list-style-type: none;
+
+	&Item {
+		padding: 22px 30px;
+		border-radius: 16px;
+		background-color: var(--white);
+
+		span {
+			color: var(--primary);
+			font-weight: 600;
+			margin-right: 12px;
+		}
+	}
+}
