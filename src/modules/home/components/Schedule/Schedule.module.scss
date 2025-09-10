@@ -3,7 +3,7 @@
 }
 
 .inner {
-	border-radius: 16px;
+	@include border-radius-16;;
 	background-color: var(--blue-bg);
 	padding: 40px;
 	position: relative;
@@ -45,7 +45,7 @@
 
 	&Item {
 		padding: 22px 30px;
-		border-radius: 16px;
+		@include border-radius-16;;
 		background-color: var(--white);
 
 		span {

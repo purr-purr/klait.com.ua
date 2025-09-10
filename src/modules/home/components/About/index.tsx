@@ -30,7 +30,7 @@ const About = () => {
 	];
 
 	return (
-		<BlockContainer innerClassName={s.container}>
+		<BlockContainer innerClassName={s.container} anchor="about">
 			<BlockHeader subTitle="Про ліцей"/>
 
 			<div className={s.inner}>

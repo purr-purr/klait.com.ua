@@ -1,35 +1,47 @@
-import { useEffect, type FC, type ReactNode } from 'react';
+import { FC, ReactNode, useEffect } from 'react';
 import Image from 'next/image';
-
 import cn from 'classnames';
 
 import ICON_CLOSE from '@public/assets/icon-close.svg';
-
 import s from './ModalLayout.module.scss';
 
-const ModalLayout: FC<{
+type ModalLayoutProps = {
 	isOpen: boolean;
 	onClose: () => void;
-	children: ReactNode;
+	children?: ReactNode;
 	className?: string;
-}> = ({ isOpen, onClose, children, className }) => {
-	useEffect(() => {
-		const element = document.querySelector('html');
+};
 
-		if (element) {
-			element.setAttribute('style', `${isOpen ? `overflow:hidden;` : ``}`);
-		}
+const ModalLayout: FC<ModalLayoutProps> = ({
+	isOpen,
+	onClose,
+	children,
+	className
+}) => {
+	useEffect(() => {
+		const html = document.documentElement;
+		const prev = html.style.overflow;
+		if (isOpen) html.style.overflow = 'hidden';
+		return () => {
+			html.style.overflow = prev;
+		};
 	}, [isOpen]);
 
 	if (!isOpen) return null;
 
 	return (
 		<div className={s.container} onClick={onClose}>
-			<div className={s.inner} onClick={(e) => e.stopPropagation()}>
-				<button className={s.close} onClick={onClose}>
-					<Image src={ICON_CLOSE} alt="icon" />
+			<div
+				className={s.inner}
+				onClick={(e) => e.stopPropagation()}
+				role="dialog"
+				aria-modal="true"
+			>
+				<button className={s.close} onClick={onClose} aria-label="Close modal">
+					<Image src={ICON_CLOSE} alt="Close"/>
 				</button>
-				<div className={cn(s.body, className && className)}>{children}</div>
+
+				<article className={cn(s.body, className)}>{children}</article>
 			</div>
 		</div>
 	);

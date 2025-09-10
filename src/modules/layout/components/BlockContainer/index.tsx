@@ -9,18 +9,21 @@ const BlockContainer: FC<{
 	isBlueBackground?: boolean;
 	containerElementTag?: string;
 	innerElementTag?: string;
+	anchor?: string;
 }> = ({
 	children,
 	containerClassName,
 	innerClassName,
 	isBlueBackground = false,
 	containerElementTag = 'section',
-	innerElementTag = 'div'
+	innerElementTag = 'div',
+	anchor
 }) => {
 	return createElement(
 		containerElementTag,
 		{
-			className: cn(isBlueBackground && s.container, containerClassName)
+			className: cn(isBlueBackground && s.container, containerClassName),
+			id: anchor
 		},
 		createElement(
 			innerElementTag,

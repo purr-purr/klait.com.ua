@@ -1,15 +1,30 @@
 .container {
 	color: var(--main-text);
-	font-size: 30px;
-	font-weight: 400;
 	margin-bottom: 24px;
 	text-transform: uppercase;
+	font-weight: 400;
 
-	@include media($laptop-bp) {
-		font-size: 26px;
+	&--large {
+		font-size: 50px;
+
+		.highlight {
+			color: var(--primary);
+		}
+	}
+
+	&--medium {
+		font-size: 30px;
+
+		@include media($laptop-bp) {
+			font-size: 26px;
+		}
+
+		.highlight {
+			color: var(--second-primary);
+		}
 	}
 }
 
 .highlight {
-	color: var(--second-primary);
+	font-weight: 700;
 }

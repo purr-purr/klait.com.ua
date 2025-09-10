@@ -8,8 +8,3 @@ export interface IDocumentsList {
 	title: string;
 	link: string;
 }
-
-export interface IDocumentsListGroup {
-	groupTitle: string;
-	list: IDocumentsList[];
-}

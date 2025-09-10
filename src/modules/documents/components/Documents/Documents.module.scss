@@ -1,0 +1,19 @@
+.container {
+	@include container;
+	margin-top: 130px;
+}
+
+.title {
+	max-width: 708px;
+	margin-bottom: 100px;
+
+	@include pseudo(before) {
+		width: 270px;
+		height: 145px;
+		top: 0;
+		right: -267px;
+		background: url("../../assets/documents-title.png") no-repeat center center;
+		background-size: 100% 100%;
+		z-index: 1;
+	}
+}

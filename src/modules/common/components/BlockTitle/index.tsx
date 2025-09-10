@@ -1,47 +1,28 @@
-// import { createElement, FC } from 'react';
-//
-// import s from './BlockTitle.module.scss';
-//
-// const BlockTitle: FC<{
-// 	title: string;
-// 	isHighlighted?: boolean;
-// }> = ({
-// 	title,
-// 	isHighlighted = true
-// }) => {
-// 	const titleWithoutLastWord = title.trim().split(" ").slice(0, -1).join(" ");
-// 	const lastWord = " " + title.trim().split(" ").pop();
-// 	const lastElement = createElement('span', {className: s.highlight}, lastWord);
-//
-// 	return createElement(
-// 		"h2",
-// 		{className: s.container},
-// 		isHighlighted ? titleWithoutLastWord : title,
-// 		isHighlighted && lastElement
-// 	);
-// };
-//
-// export default BlockTitle;
-
 import { createElement, FC } from "react";
 import s from "./BlockTitle.module.scss";
+import cn from 'classnames';
 
 const BlockTitle: FC<{
 	title: string;
 	isHighlighted?: boolean;
 	highlightCount?: 1 | 2;
+	size?: 'large' | 'medium';
+	className?: string;
 }> = ({
 	title,
 	isHighlighted = true,
-	highlightCount = 1
+	highlightCount = 1,
+	size = 'medium',
+	className
 }) => {
 	const words = title.trim().split(" ");
 	const highlightWords = isHighlighted ? words.slice(-highlightCount) : [];
 	const normalWords = isHighlighted ? words.slice(0, -highlightCount) : words;
+	const htmlTag = size === 'large' ? 'h1' : 'h2';
 
 	return createElement(
-		"h2",
-		{className: s.container},
+		htmlTag,
+		{className: cn(s.container, s[`container--${size}`], className)},
 		normalWords.join(" "),
 		isHighlighted &&
 		createElement(

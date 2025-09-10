@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 import { HeaderContext } from '@modules/layout/context/HeaderContext';
 import CLOSE_ICON from '@public/assets/icon-menu-cross.svg';
-import WHITE_OPEN_ICON from '@public/assets/icon-menu.svg';
+import WHITE_OPEN_ICON from '@public/assets/icon-menu.png';
 
 import s from './NavigationButton.module.scss';
 import cn from 'classnames';

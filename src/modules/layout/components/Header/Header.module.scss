@@ -33,3 +33,24 @@
 .inner {
 	@include flex(center, space-between);
 }
+
+.contacts {
+	@include flex($gap: 80px);
+	margin-inline: auto 57px;
+
+	&Address, &Phone {
+		color: var(--main-text);
+		text-decoration: none;
+	}
+
+	&Address {
+		max-width: 296px;
+		width: 100%;
+		line-height: 1.5;
+	}
+
+	&Phone {
+		display: block;
+		margin-bottom: 8px;
+	}
+}

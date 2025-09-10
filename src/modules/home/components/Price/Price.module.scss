@@ -4,7 +4,7 @@
 
 .inner {
 	@include flex;
-	border-radius: 16px;
+	@include border-radius-16;;
 	overflow: hidden;
 }
 
@@ -23,7 +23,7 @@
 	max-width: 468px;
 	width: 100%;
 	background-color: var(--primary);
-	border-radius: 16px;
+	@include border-radius-16;;
 	color: var(--white);
 
 	&List {

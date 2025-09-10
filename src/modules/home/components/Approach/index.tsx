@@ -28,7 +28,8 @@ const Approach = () => {
 	];
 
 	return (
-		<BlockContainer innerClassName={s.container} isBlueBackground>
+		<BlockContainer innerClassName={s.container} isBlueBackground
+		                anchor="aproaches">
 			<BlockHeader subTitle="Методики">
 				<BlockTitle
 					title="Сучасні підходи для яскравого майбутнього"

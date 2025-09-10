@@ -1,0 +1,24 @@
+.intro {
+	@include flex(center, space-between, 60px);
+	@include container;
+	margin-block: 130px 100px;
+
+	&Title {
+		max-width: 711px;
+	}
+
+	&Desc {
+		max-width: 454px;
+		width: 100%;
+
+		@include pseudo(before) {
+			width: 229px;
+			height: 243px;
+			top: -74px;
+			right: -62px;
+			background: url("../../assets/forTeachers-desc.png") no-repeat center center;
+			background-size: 100% 100%;
+			z-index: 1;
+		}
+	}
+}

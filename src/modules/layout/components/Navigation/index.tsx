@@ -4,12 +4,11 @@ import Link from 'next/link';
 import { HeaderContext } from '@modules/layout/context/HeaderContext';
 import cn from 'classnames';
 
-import { navigationList } from '@utils/data';
 import type { INavigationList } from '@utils/types';
 
 import s from './Navigation.module.scss';
 import NavigationButton from '@modules/layout/components/NavigationButton';
-import { useMediaQuery } from '@modules/common/hooks';
+import useMediaQuery from '@modules/common/hooks/useMediaQuery';
 import {
 	COMPANY_ADDRESS,
 	COMPANY_DISPLAYED_PHONE,
@@ -20,6 +19,7 @@ import {
 } from '@utils/const';
 import Logo from '@modules/common/components/Logo';
 import Button from '@modules/common/components/Button';
+import { navigationList } from '@data/navigation';
 
 const Navigation = () => {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);

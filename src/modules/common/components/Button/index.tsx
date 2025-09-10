@@ -1,4 +1,4 @@
-import { createElement, FC, FormEvent } from 'react';
+import { createElement, FC } from 'react';
 
 import cn from 'classnames';
 
@@ -8,7 +8,7 @@ const Button: FC<{
 	text: string;
 	type?: 'primary' | 'white' | 'text';
 	className?: string;
-	onClick?: (e: FormEvent) => void;
+	onClick?: () => void;
 }> = ({
 	onClick,
 	text,

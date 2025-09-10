@@ -1,0 +1,45 @@
+.container {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 460px));
+	grid-template-rows: auto;
+	row-gap: 39px;
+	column-gap: 26px;
+	margin-block: 100px 145px;
+	list-style-type: none;
+}
+
+.item {
+	background-color: var(--blue-bg);
+	@include border-radius-16;
+}
+
+.link {
+	all: unset;
+	@include flex($gap: 16px);
+	flex-direction: column;
+	cursor: pointer;
+	padding: 40px;
+	transition: all 0.3s ease-out;
+
+	&:hover button {
+		color: var(--second-primary);
+		transition: all 0.3s ease-out;
+
+		&:after {
+			transform: rotateZ(-45deg);
+			background: url('../../../../../public/assets/icon-arrow-left--second-primary.svg') no-repeat, center center;
+			transition: all 0.3s ease-out;
+		}
+	}
+
+	span {
+		font-weight: 700;
+		font-size: 20px;
+	}
+
+	.button {
+		width: fit-content;
+		margin-left: auto;
+		pointer-events: none;
+	}
+}

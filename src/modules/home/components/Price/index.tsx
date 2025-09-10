@@ -31,7 +31,8 @@ const Price = () => {
 		}
 	]
 	return (
-		<BlockContainer innerClassName={s.container} isBlueBackground>
+		<BlockContainer innerClassName={s.container} isBlueBackground
+		                anchor="price">
 			<BlockHeader subTitle="Вартість">
 				<BlockTitle
 					title="Вартість, що відповідає цінності"

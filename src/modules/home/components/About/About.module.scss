@@ -23,7 +23,7 @@
 	&Item {
 		@include flex($gap: 12px);
 		padding: 40px 40px 40px 12px;
-		border-radius: 16px;
+		@include border-radius-16;;
 		background-color: var(--blue-bg);
 
 		h4 {

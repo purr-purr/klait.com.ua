@@ -1,16 +1,20 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Logo from '@modules/common/components/Logo';
-import {
-	HeaderContext,
-	HeaderContextWrapper
-} from '@modules/layout/context/HeaderContext';
+import { HeaderContextWrapper } from '@modules/layout/context/HeaderContext';
 import cn from 'classnames';
 
-import { useMediaQuery } from '@modules/common/hooks';
+import useMediaQuery from '@modules/common/hooks/useMediaQuery';
 
-import { MOBILE_BREAKPOINT } from '@utils/const';
+import {
+	COMPANY_ADDRESS,
+	COMPANY_DISPLAYED_PHONE,
+	COMPANY_MAP_LINK,
+	COMPANY_PHONE,
+	COMPANY_SCHEDULE,
+	MOBILE_BREAKPOINT
+} from '@utils/const';
 
 import s from './Header.module.scss';
 import Navigation from '@modules/layout/components/Navigation';
@@ -22,10 +26,6 @@ const Header = () => {
 	const router = useRouter();
 	const scrollTopGap = isMobile ? 20 : 100;
 	const isWhiteHeader = scrollTop > scrollTopGap || router.pathname !== '/';
-
-	const {
-		isMobileNavMode
-	} = useContext(HeaderContext);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -47,6 +47,18 @@ const Header = () => {
 			<Logo/>
 
 			<HeaderContextWrapper>
+				<div className={s.contacts}>
+					<a className={s.contactsAddress} href={COMPANY_MAP_LINK}
+					   target="_blank"
+					   rel="noreferrer">{COMPANY_ADDRESS}</a>
+
+					<div>
+						<a className={s.contactsPhone} href={`tel:${COMPANY_PHONE}`}
+						   target="_blank"
+						   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
+						<p>{COMPANY_SCHEDULE}</p>
+					</div>
+				</div>
 				<Navigation/>
 			</HeaderContextWrapper>
 		</BlockContainer>
