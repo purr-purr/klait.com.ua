@@ -57,7 +57,7 @@
 	background-size: 600% 600%;
 	background-position-x: -2px;
 
-	&:hover {
+	&.active, &:hover {
 		animation: gradientMove 3s ease-out infinite;
 
 		@keyframes gradientMove {

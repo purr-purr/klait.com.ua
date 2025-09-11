@@ -73,3 +73,12 @@
 	margin-top: 48px;
 	margin-inline: auto;
 }
+
+
+.card {
+	width: 464px;
+	height: 481px;
+	background-color: var(--blue-bg);
+	padding: 10px 10px 40px;
+	@include border-radius-16;
+}

@@ -1,16 +1,18 @@
-import s from './Events.module.scss';
+import s from './EventsSlider.module.scss';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import BlockHeader from '@modules/common/components/BlockHeader';
 
 import Button from '@modules/common/components/Button';
-import ModalLayout from '@modules/common/components/ModalLayout';
 import { useState } from 'react';
-import Image from 'next/image';
-import EVENT_POSTER from '../../assets/events-photo.png';
 import { events } from '@data/events';
+import Carousel from 'nuka-carousel';
+import Image from 'next/image';
+import EVENT_POSTER from '@modules/forTeachers/assets/events-photo.png';
+import ModalLayout from '@modules/common/components/ModalLayout';
 
-const EventsPage = () => {
+
+const EventsSlider = () => {
 	const [openModal, setOpenModal] = useState<number | null>(null);
 	const [isDisplayedFullList, setIsDisplayedFullList] = useState<boolean>(false);
 	const [isFutureEvents, setIsFutureEvents] = useState<boolean>(true);
@@ -34,6 +36,21 @@ const EventsPage = () => {
 	const eventsList = isDisplayedFullList ? userSortedEvents : userSortedEvents.slice(0, 6);
 	const isSeeMoreBtn = !isDisplayedFullList && userSortedEvents.length > 6;
 
+
+	const responsive = {
+		0: {items: 1},
+		568: {items: 2},
+		1024: {items: 3}
+	};
+
+	// const items = [
+	// 	<div className="item" data-value="1">1</div>,
+	// 	<div className="item" data-value="2">2</div>,
+	// 	<div className="item" data-value="3">3</div>,
+	// 	<div className="item" data-value="4">4</div>,
+	// 	<div className="item" data-value="5">5</div>
+	// ];
+
 	return (
 		<BlockContainer
 			containerClassName={s.container}
@@ -56,9 +73,20 @@ const EventsPage = () => {
 				/>
 			</div>
 
+
 			<ul className={s.list}>
+
+			</ul>
+
+
+			<Carousel
+				slidesToShow={3}
+				renderBottomCenterControls={null}
+				cellSpacing={12}
+				adaptiveHeight
+			>
 				{eventsList.map((item, index) => (
-					<li key={item.title + index} className={s.item}>
+					<div key={item.title + index} className={s.card}>
 						<Image
 							className={s.poster}
 							src={item.poster || EVENT_POSTER}
@@ -85,19 +113,13 @@ const EventsPage = () => {
 							<div dangerouslySetInnerHTML={{__html: item.fullDesc}}/>
 							<Button className={s.modalButton} text="Приєднатися до команди"/>
 						</ModalLayout>
-					</li>
+					</div>
 				))}
-			</ul>
-			{isSeeMoreBtn &&
-				<Button
-					className={s.seeMoreButton}
-					text="Дивитися більше"
-					type="white"
-					onClick={() => setIsDisplayedFullList(true)}
-				/>
-			}
+			</Carousel>
+
+
 		</BlockContainer>
 	);
 }
 
-export default EventsPage;
+export default EventsSlider;

@@ -4,6 +4,7 @@ import BlockContainer from '@modules/layout/components/BlockContainer';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import Vacancies from '@modules/forTeachers/components/Vacancies';
 import EventsPage from '@modules/forTeachers/components/Events';
+import EventsSlider from '@modules/forTeachers/components/EventsSlider';
 
 const ForTeachers = () => {
 	return (
@@ -26,6 +27,11 @@ const ForTeachers = () => {
 
 			<Vacancies/>
 			<EventsPage/>
+
+			<br/>
+			<br/>
+
+			<EventsSlider/>
 
 			<BlockContainer isBlueBackground>
 				<Contacts/>

@@ -9,15 +9,17 @@ const Button: FC<{
 	type?: 'primary' | 'white' | 'text';
 	className?: string;
 	onClick?: () => void;
+	isActiveState?: boolean;
 }> = ({
 	onClick,
 	text,
 	type = 'primary',
-	className
+	className,
+	isActiveState = false
 }) => {
 	const commonProps = {
 		onClick,
-		className: cn(s.container, s[type], className && className)
+		className: cn(s.container, s[type], className, isActiveState && s.active)
 	};
 
 	return createElement('button', {...commonProps}, text);
