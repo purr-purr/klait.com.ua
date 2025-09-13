@@ -1,16 +1,20 @@
-import s from './Events.module.scss';
+import s from './EventsInfo.module.scss';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 import BlockTitle from '@modules/common/components/BlockTitle';
 import BlockHeader from '@modules/common/components/BlockHeader';
 
 import Button from '@modules/common/components/Button';
-import ModalLayout from '@modules/common/components/ModalLayout';
-import { useState } from 'react';
-import Image from 'next/image';
-import EVENT_POSTER from '../../assets/events-photo.png';
+import { FC, useState } from 'react';
 import { events } from '@data/events';
+import EventCard from '@modules/forTeachers/components/EventCard';
+import "keen-slider/keen-slider.min.css";
+import ModalLayout from '@modules/common/components/ModalLayout';
+import Slider from '@modules/common/components/Slider';
+import { KeenSliderInstance } from 'keen-slider/react';
 
-const EventsPage = () => {
+
+const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
+	const [inst, setInst] = useState<KeenSliderInstance | null>(null);
 	const [openModal, setOpenModal] = useState<number | null>(null);
 	const [isDisplayedFullList, setIsDisplayedFullList] = useState<boolean>(false);
 	const [isFutureEvents, setIsFutureEvents] = useState<boolean>(true);
@@ -34,6 +38,11 @@ const EventsPage = () => {
 	const eventsList = isDisplayedFullList ? userSortedEvents : userSortedEvents.slice(0, 6);
 	const isSeeMoreBtn = !isDisplayedFullList && userSortedEvents.length > 6;
 
+	const handleTabButtonClick = (state: boolean) => {
+		setIsFutureEvents(state);
+		isCarousel && inst?.moveToIdx(0);
+	};
+
 	return (
 		<BlockContainer
 			containerClassName={s.container}
@@ -45,50 +54,54 @@ const EventsPage = () => {
 			<div className={s.tabs}>
 				<Button
 					text="Найближчі події"
-					onClick={() => setIsFutureEvents(true)}
+					onClick={() => handleTabButtonClick(true)}
 					isActiveState={isFutureEvents}
 				/>
 				<Button
 					text="Минулі події"
 					type="white"
 					isActiveState={!isFutureEvents}
-					onClick={() => setIsFutureEvents(false)}
+					onClick={() => handleTabButtonClick(false)}
 				/>
 			</div>
 
-			<ul className={s.list}>
-				{eventsList.map((item, index) => (
-					<li key={item.title + index} className={s.item}>
-						<Image
-							className={s.poster}
-							src={item.poster || EVENT_POSTER}
-							alt="event poster"
+			{isCarousel ? (
+				<Slider onInstance={setInst} className={s.list}>
+					{eventsList.map((item, index) =>
+						<EventCard
+							className="keen-slider__slide"
+							key={item.title + index}
+							item={item}
+							index={index}
+							setOpenModal={setOpenModal}
 						/>
-						<article className={s.inner}>
-							<h4 className={s.title}>{item.title}</h4>
-							<p className={s.desc}>{item.desc}</p>
-							<footer className={s.footer}>
-								<span className={s.date}>{item.date}</span>
-								<Button
-									text="Переглянути"
-									type="text"
-									className={s.button}
-									onClick={() => setOpenModal(index)}
-								/>
-							</footer>
-						</article>
+					)}
+				</Slider>
+			) : (
+				<ul className={s.list}>
+					{eventsList.map((item, index) =>
+						<EventCard
+							key={item.title + index}
+							item={item}
+							index={index}
+							setOpenModal={setOpenModal}
+						/>
+					)}
+				</ul>
+			)}
 
-						<ModalLayout
-							isOpen={openModal === index}
-							onClose={() => setOpenModal(null)}
-						>
-							<div dangerouslySetInnerHTML={{__html: item.fullDesc}}/>
-							<Button className={s.modalButton} text="Приєднатися до команди"/>
-						</ModalLayout>
-					</li>
-				))}
-			</ul>
-			{isSeeMoreBtn &&
+			{eventsList.map((item, index) =>
+				<ModalLayout
+					key={index}
+					isOpen={openModal === index}
+					onClose={() => setOpenModal(null)}
+				>
+					<div dangerouslySetInnerHTML={{__html: item.fullDesc}}/>
+					<Button className={s.modalButton} text="Приєднатися до команди"/>
+				</ModalLayout>
+			)}
+
+			{isSeeMoreBtn && !isCarousel &&
 				<Button
 					className={s.seeMoreButton}
 					text="Дивитися більше"
@@ -100,4 +113,4 @@ const EventsPage = () => {
 	);
 }
 
-export default EventsPage;
+export default EventsInfo;

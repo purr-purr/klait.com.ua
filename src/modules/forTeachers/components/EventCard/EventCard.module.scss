@@ -1,21 +1,10 @@
-.container {
-	margin-block: 150px;
-}
-
 .inner {
 	padding-inline: 30px;
 }
 
-.list {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 460px));
-	grid-template-rows: auto;
-	row-gap: 39px;
-	column-gap: 24px;
-	list-style-type: none;
-}
-
-.item {
+.container {
+	min-width: 464px;
+	height: 481px;
 	background-color: var(--blue-bg);
 	padding: 10px 10px 40px;
 	@include border-radius-16;
@@ -61,15 +50,4 @@
 
 .footer {
 	@include flex(center, space-between, 24px);
-}
-
-.tabs {
-	@include flex($gap: 17px);
-	margin-bottom: 24px;
-}
-
-.seeMoreButton {
-	display: block;
-	margin-top: 48px;
-	margin-inline: auto;
 }
