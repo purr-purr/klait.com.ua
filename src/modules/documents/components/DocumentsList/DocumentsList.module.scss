@@ -19,22 +19,26 @@
 	flex-direction: column;
 	cursor: pointer;
 	padding: 40px;
-	transition: all 0.3s ease-out;
+	transition: all 0.3s ease-in-out;
 
 	&:hover button {
 		color: var(--second-primary);
-		transition: all 0.3s ease-out;
+		transition: all 0.3s ease-in-out;
 
 		&:after {
 			transform: rotateZ(-45deg);
 			background: url('../../../../../public/assets/icon-arrow-left--second-primary.svg') no-repeat, center center;
-			transition: all 0.3s ease-out;
+			transition: all 0.3s ease-in-out;
 		}
 	}
 
 	span {
 		font-weight: 700;
 		font-size: 20px;
+
+		@include media($mobile-bp) {
+			font-size: 18px;
+		}
 	}
 
 	.button {

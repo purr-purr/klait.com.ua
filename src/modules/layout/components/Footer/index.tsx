@@ -24,7 +24,7 @@ const Footer = () => {
 				{COMPANY_EDRPOU} <br/>
 				{currentYear}/ Всі права захищені
 			</p>
-			<p>
+			<p className={s.signature}>
 				Розробка сайту{' '}
 				<a target="_blank" rel="noreferrer" href={APP_AUTHOR_WEBSITE}>
 					{APP_AUTHOR_SIGNATURE}

@@ -1,8 +1,9 @@
-import { createElement, FC } from 'react';
+import { FC } from 'react';
 
 import cn from 'classnames';
 
 import s from './Button.module.scss';
+import Image, { StaticImageData } from 'next/image';
 
 const Button: FC<{
 	text: string;
@@ -10,19 +11,23 @@ const Button: FC<{
 	className?: string;
 	onClick?: () => void;
 	isActiveState?: boolean;
+	icon?: StaticImageData;
 }> = ({
 	onClick,
 	text,
 	type = 'primary',
 	className,
-	isActiveState = false
+	isActiveState = false,
+	icon
 }) => {
-	const commonProps = {
-		onClick,
-		className: cn(s.container, s[type], className, isActiveState && s.active)
-	};
-
-	return createElement('button', {...commonProps}, text);
+	return (
+		<button
+			onClick={onClick}
+			className={cn(s.container, s[type], className, icon && s.icon, isActiveState && s.active)}>
+			{icon && <Image className={s.icon} src={icon} alt="icon"/>}
+			{text}
+		</button>
+	);
 };
 
 export default Button;

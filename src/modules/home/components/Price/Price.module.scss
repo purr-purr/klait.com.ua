@@ -12,6 +12,10 @@
 	text-transform: uppercase;
 	font-size: 30px;
 
+	@include media($laptop-bp) {
+		font-size: 26px;
+	}
+
 	&Desc {
 		margin-top: 4px;
 		opacity: 0.5;
@@ -26,6 +30,10 @@
 	@include border-radius-16;;
 	color: var(--white);
 
+	@include media($laptop-bp) {
+		max-width: 300px;
+	}
+
 	&List {
 		@include flex($justify: space-between, $gap: 24px);
 		list-style-type: none;
@@ -35,10 +43,21 @@
 		li {
 			max-width: 128px;
 			width: 100%;
+
+			@include media($laptop-bp) {
+				@include flex($justify: space-between);
+				flex-direction: column;
+			}
 		}
 
 		strong {
+			display: block;
+			margin-top: 16px;
 			font-size: 28px;
+
+			@include media($laptop-bp) {
+				font-size: 20px;
+			}
 		}
 	}
 
@@ -58,6 +77,10 @@
 	background: var(--white) url("../../assets/price-bg.png") no-repeat bottom right;
 	background-size: 264px 361px;
 
+	@include media($laptop-bp) {
+		background-size: 214px 311px;
+	}
+
 	.title {
 		font-weight: 400;
 	}
@@ -66,6 +89,7 @@
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
 		grid-template-rows: repeat(2, auto);
+		align-items: end;
 		row-gap: 49px;
 		column-gap: 69px;
 		margin-top: 58px;
@@ -81,6 +105,10 @@
 		& h5 {
 			font-size: 20px;
 			margin-bottom: 16px;
+
+			@include media($laptop-bp) {
+				font-size: 18px;
+			}
 		}
 
 		& span {

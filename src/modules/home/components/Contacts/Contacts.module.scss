@@ -72,17 +72,16 @@
 }
 
 .info {
-	@include media($mobile-bp) {
-		padding-top: 48px;
-		padding-inline: 24px;
-	}
-
 	&Inner {
 		dt {
 			font-weight: 700;
 			font-size: 20px;
 			display: inline-block;
 			margin-bottom: 8px;
+
+			@include media($laptop-bp) {
+				font-size: 18px;
+			}
 		}
 
 		a {
@@ -94,6 +93,10 @@
 			display: inline-block;
 			font-size: 18px;
 			margin-bottom: 16px;
+
+			@include media($laptop-bp) {
+				font-size: 16px;
+			}
 		}
 	}
 

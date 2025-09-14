@@ -12,6 +12,8 @@ import ModalLayout from '@modules/common/components/ModalLayout';
 import Slider from '@modules/common/components/Slider';
 import { KeenSliderInstance } from 'keen-slider/react';
 
+import ICON_TIME from '../../assets/events-time.png';
+import ICON_FOLDER from '../../assets/events-folder.png';
 
 const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 	const [inst, setInst] = useState<KeenSliderInstance | null>(null);
@@ -46,6 +48,7 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 	return (
 		<BlockContainer
 			containerClassName={s.container}
+			innerClassName={s.inner}
 		>
 			<BlockHeader subTitle="Події">
 				<BlockTitle title="Життя школи в кожній події"/>
@@ -53,11 +56,14 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 
 			<div className={s.tabs}>
 				<Button
+					icon={ICON_TIME}
+					type="white"
 					text="Найближчі події"
 					onClick={() => handleTabButtonClick(true)}
 					isActiveState={isFutureEvents}
 				/>
 				<Button
+					icon={ICON_FOLDER}
 					text="Минулі події"
 					type="white"
 					isActiveState={!isFutureEvents}

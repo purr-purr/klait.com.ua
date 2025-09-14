@@ -24,6 +24,10 @@
 		top: 0;
 		transition: opacity .3s ease-out;
 
+		@include media($laptop-bp) {
+			right: 0;
+		}
+
 		&:hover {
 			opacity: 0.7;
 			transition: opacity .3s ease-out;

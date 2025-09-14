@@ -20,8 +20,8 @@
 		}
 
 		@include media($laptop-bp) {
-			width: calc(100% + 80px);
-			left: -40px;
+			width: 100%;
+			left: 0;
 		}
 
 		&:before {
@@ -42,10 +42,6 @@
 
 	@include media($laptop-bp) {
 		display: none;
-	}
-
-	button {
-
 	}
 }
 
@@ -106,6 +102,10 @@
 	margin-bottom: 40px;
 	padding-right: 60px;
 
+	@include media($mobile-bp) {
+
+	}
+
 	&Button {
 		margin-top: 40px;
 	}
@@ -117,8 +117,4 @@
 		color: var(--white);
 		margin-top: 16px;
 	}
-
-	//a:hover {
-	//	color: var(--second-primary);
-	//}
 }

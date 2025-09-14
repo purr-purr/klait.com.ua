@@ -16,6 +16,13 @@
 		background: url("../../assets/schedule-plane.png") no-repeat center center;
 		background-size: 100% 100%;
 		z-index: 1;
+
+		@include media($laptop-bp) {
+			top: -74px;
+			right: -84px;
+			width: 405px;
+			height: 264px;
+		}
 	}
 
 	@include pseudo(before) {
@@ -26,6 +33,13 @@
 		background: url("../../assets/schedule-signature.png") no-repeat center center;
 		background-size: 100% 100%;
 		z-index: 1;
+
+		@include media($laptop-bp) {
+			bottom: -25px;
+			left: -26px;
+			width: 102px;
+			height: 119px;
+		}
 	}
 }
 
@@ -33,6 +47,10 @@
 	font-family: 'Montseratt', sans-serif;
 	font-size: 20px;
 	margin-bottom: 24px;
+
+	@include media($laptop-bp) {
+		font-size: 18px;
+	}
 }
 
 .list {

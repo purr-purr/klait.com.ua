@@ -16,4 +16,16 @@
 		background-size: 100% 100%;
 		z-index: 1;
 	}
+
+	@include media($pc-bp) {
+		font-size: 44px;
+	}
+
+	@include media($laptop-bp) {
+		font-size: 40px;
+	}
+
+	@include media($mobile-bp) {
+		font-size: 32px;
+	}
 }

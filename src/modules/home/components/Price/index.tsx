@@ -45,11 +45,8 @@ const Price = () => {
 					<ul className={s.priceList}>
 						{price.map(item => (
 							<li key={item.title}>
-								<p>{item.title}
-									<br/>
-									<br/>
-									<strong>{item.price}</strong>
-								</p>
+								<p>{item.title}</p>
+								<p><strong>{item.price}</strong></p>
 							</li>
 						))}
 					</ul>

@@ -12,6 +12,10 @@
 	width: fit-content;
 	margin-bottom: 24px;
 
+	@include media($mobile-bp) {
+		font-size: 14px;
+	}
+
 	@include pseudo() {
 		left: -33px;
 		top: -3px;

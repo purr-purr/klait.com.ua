@@ -7,6 +7,10 @@
 		min-height: 100vh;
 	}
 
+	@include media($laptop-bp) {
+		max-height: 750px;
+	}
+
 	@include media($mobile-bp) {
 		max-height: 600px;
 	}
@@ -45,6 +49,14 @@
 			z-index: -1;
 		}
 
+		@include media($pc-bp) {
+			font-size: 44px;
+		}
+
+		@include media($laptop-bp) {
+			font-size: 40px;
+		}
+
 		@include media($mobile-bp) {
 			font-size: 32px;
 		}
@@ -60,7 +72,7 @@
 		font-size: 20px;
 
 		@include media($mobile-bp) {
-			font-size: 16px;
+			font-size: 18px;
 		}
 	}
 }
@@ -74,4 +86,14 @@
 	bottom: 0;
 	max-width: 971px;
 	max-height: 801px;
+
+	@include media($laptop-bp) {
+		max-width: 854px;
+		max-height: 680px;
+	}
+
+	@include media($mobile-bp) {
+		max-width: 764px;
+		max-height: 590px;
+	}
 }

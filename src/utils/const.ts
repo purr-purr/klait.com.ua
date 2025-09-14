@@ -1,8 +1,8 @@
 export const MOBILE_BREAKPOINT: number = 1024;
 export const LAPTOP_BREAKPOINT: number = 1200;
 export const APP_AUTHOR: string = 'Anton Shaposhnikov';
-export const APP_AUTHOR_SIGNATURE: string = 'Today Studio';
-export const APP_AUTHOR_WEBSITE: string = `https://2days-tech.ie/`;
+export const APP_AUTHOR_SIGNATURE: string = 'shaposhnikov.ie';
+export const APP_AUTHOR_WEBSITE: string = `https://shaposhnikov.ie/`;
 export const APP_AUTHOR_FULL_SIGNATURE: string = `Website Developer: ${APP_AUTHOR} => ${APP_AUTHOR_WEBSITE} => shaposhnikov.web@gmail.com`;
 export const APP_LINK: string = 'https://www.klait.com.ua/';
 export const COMPANY_NAME: string[] = ['KLA', 'IT'];

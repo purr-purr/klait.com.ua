@@ -1,8 +1,33 @@
+
+.navigation {
+	position: absolute;
+	right: 40px;
+	top: 60px;
+}
+
 .arrow {
-	width: 30px;
-	height: 30px;
+	width: 60px;
+	height: 60px;
+	cursor: pointer;
+	transform: rotate(180deg);
+	border: none;
+	outline: none;
+	background: url("../../assets/slider-arrow.png") no-repeat center center;
+	background-size: 100% 100%;
+	transition: all .3s ease-out;
+
+	&:hover {
+		background-image: url("../../assets/slider-arrow--hover.png");
+		transition: all .3s ease-out;
+	}
+
+	&--left {
+		transform: rotate(0deg);
+		margin-right: 11px;
+	}
 
 	&.disabled {
 		opacity: 0.5;
+		pointer-events: none;
 	}
 }

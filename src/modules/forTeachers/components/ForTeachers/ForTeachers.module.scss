@@ -5,6 +5,18 @@
 
 	&Title {
 		max-width: 711px;
+
+		@include media($pc-bp) {
+			font-size: 44px;
+		}
+
+		@include media($laptop-bp) {
+			font-size: 40px;
+		}
+
+		@include media($mobile-bp) {
+			font-size: 32px;
+		}
 	}
 
 	&Desc {

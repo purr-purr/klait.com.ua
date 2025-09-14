@@ -39,6 +39,10 @@
 		font-family: 'Montseratt', sans-serif;
 		font-size: 20px;
 		font-weight: 700;
+
+		@include media($mobile-bp) {
+			font-size: 18px;
+		}
 	}
 
 	@include media($mobile-bp) {

@@ -38,6 +38,11 @@
 	@include flex($gap: 80px);
 	margin-inline: auto 57px;
 
+	@include media($laptop-bp) {
+		gap: 24px;
+		margin-inline-end: 24px;
+	}
+
 	&Address, &Phone {
 		color: var(--main-text);
 		text-decoration: none;

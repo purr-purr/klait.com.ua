@@ -2,6 +2,10 @@
 	margin-block: 150px;
 }
 
+.inner {
+	position: relative;
+}
+
 .list {
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 460px));
@@ -9,6 +13,10 @@
 	row-gap: 39px;
 	column-gap: 24px;
 	list-style-type: none;
+
+	@include media($laptop-bp) {
+		column-gap: 0;
+	}
 }
 
 .item {
@@ -25,5 +33,11 @@
 .seeMoreButton {
 	display: block;
 	margin-top: 48px;
+	margin-inline: auto;
+}
+
+.modalButton {
+	display: block;
+	margin-top: 40px;
 	margin-inline: auto;
 }

@@ -5,8 +5,8 @@
 
 	@include media($mobile-bp) {
 		flex-direction: column;
-		align-items: center;
-		gap: 16px;
+		align-items: flex-start;
+		gap: 12px;
 	}
 
 	.logo {
@@ -22,13 +22,29 @@
 	a {
 		line-height: 1.8;
 		color: var(--main-text);
+
+		@include media($laptop-bp) {
+			font-size: 14px;
+		}
 	}
 
 	p {
 		margin-left: 24px;
 
+		@include media($mobile-bp) {
+			margin-left: 0;
+		}
+
 		&:not(:first-of-type) {
 			margin-left: auto;
+
+			@include media($mobile-bp) {
+				margin-left: 0;
+			}
 		}
 	}
+}
+
+.signature {
+	white-space: nowrap;
 }
