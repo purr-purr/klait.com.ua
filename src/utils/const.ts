@@ -5,8 +5,8 @@ export const APP_AUTHOR_SIGNATURE: string = 'shaposhnikov.ie';
 export const APP_AUTHOR_WEBSITE: string = `https://shaposhnikov.ie/`;
 export const APP_AUTHOR_FULL_SIGNATURE: string = `Website Developer: ${APP_AUTHOR} => ${APP_AUTHOR_WEBSITE} => shaposhnikov.web@gmail.com`;
 export const APP_LINK: string = 'https://www.klait.com.ua/';
-export const COMPANY_NAME: string[] = ['KLA', 'IT'];
-export const COMPANY_FULL_NAME: string = `${COMPANY_NAME[0]} ${COMPANY_NAME[1]}`;
+export const COMPANY_NAME: string = 'КЛА & IT';
+export const COMPANY_FULL_NAME: string = `«Київський ліцей авіаційних та інформаційних технологій»`;
 export const COMPANY_CATCHPHRASE: string =
 	'Початкова школа, де дітей бачать, чують і розвивають із любов’ю та знанням справи.';
 export const COMPANY_PHONE: string = '+380952323325';

@@ -14,6 +14,7 @@ import { KeenSliderInstance } from 'keen-slider/react';
 
 import ICON_TIME from '../../assets/events-time.png';
 import ICON_FOLDER from '../../assets/events-folder.png';
+import cn from 'classnames';
 
 const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 	const [inst, setInst] = useState<KeenSliderInstance | null>(null);
@@ -84,7 +85,7 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 					)}
 				</Slider>
 			) : (
-				<ul className={s.list}>
+				<ul className={cn(s.list, s[`list--static`])}>
 					{eventsList.map((item, index) =>
 						<EventCard
 							key={item.title + index}

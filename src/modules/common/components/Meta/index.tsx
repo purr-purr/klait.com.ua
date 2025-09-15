@@ -5,7 +5,8 @@ import {
 	APP_AUTHOR_FULL_SIGNATURE,
 	APP_LINK,
 	COMPANY_CATCHPHRASE,
-	COMPANY_FULL_NAME
+	COMPANY_FULL_NAME,
+	COMPANY_NAME
 } from '@utils/const';
 
 import FAVICON from '@public/assets/favicon.ico';
@@ -16,9 +17,9 @@ const Meta: FC<{
 }> = ({title}) => {
 	const manifestPath: string = '/assets/manifest.json';
 	const metaTitle: string = title
-		? `${title} ${COMPANY_FULL_NAME}`
-		: COMPANY_FULL_NAME;
-	const metaDesc: string = COMPANY_FULL_NAME + ' | ' + COMPANY_CATCHPHRASE;
+		? `${title} ${COMPANY_NAME}`
+		: COMPANY_NAME + ' | ' + COMPANY_FULL_NAME;
+	const metaDesc: string = COMPANY_NAME + ' | ' + COMPANY_CATCHPHRASE;
 
 	return (
 		<Head>

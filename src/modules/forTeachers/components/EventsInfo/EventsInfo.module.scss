@@ -10,12 +10,11 @@
 	display: grid;
 	grid-template-columns: repeat(auto-fit, minmax(260px, 460px));
 	grid-template-rows: auto;
-	row-gap: 39px;
-	column-gap: 24px;
 	list-style-type: none;
 
-	@include media($laptop-bp) {
-		column-gap: 0;
+	&--static {
+		row-gap: 39px;
+		column-gap: 24px;
 	}
 }
 

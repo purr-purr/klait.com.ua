@@ -1,8 +1,12 @@
 .container {
-	padding-block: 150px;
+	overflow-x: hidden;
 }
 
 .inner {
+	padding-block: 150px;
+}
+
+.schedule {
 	@include border-radius-16;;
 	background-color: var(--blue-bg);
 	padding: 40px;

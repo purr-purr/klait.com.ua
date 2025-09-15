@@ -74,10 +74,8 @@ const Slider: FC<{
 					/>
 				</nav>
 			)}
-
 		</>
 	);
-
 }
 
 export default Slider;
