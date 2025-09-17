@@ -64,12 +64,15 @@ const Slider: FC<{
 		}
 	})
 
-	const currentSlideCount = isTablet ? currentSlide + 2 : isMobile ? currentSlide + 1 : currentSlide * 2;
+	// const currentSlideCount2 = isTablet ? currentSlide + 2 : isMobile ? currentSlide : currentSlide * 2;
+	const currentSlideCount = isMobile ? currentSlide + 1 : isTablet ? currentSlide + 2 : currentSlide * 2;
 
 	// const nextButtonDisabled2 = currentSlide * 2 === instanceRef.current?.track.details.slides.length
 	const getSlidesTotalCount = instanceRef.current?.track.details.slides.length;
 	// const c = (instanceRef.current?.track?.details?.slides.length ?? 0) - 1;
 	const nextButtonDisabled = currentSlideCount === getSlidesTotalCount;
+	console.log(`isTablet`, isTablet)
+	console.log(`isMobile`, isMobile)
 	console.log(``, currentSlideCount, getSlidesTotalCount);
 	return (
 		<>
