@@ -1,12 +1,13 @@
+import Logo from '@modules/common/components/Logo';
+import BlockContainer from '@modules/layout/components/BlockContainer';
+
 import {
 	APP_AUTHOR_SIGNATURE,
 	APP_AUTHOR_WEBSITE,
-	COMPANY_EDRPOU
+	COMPANY_EDRPOU,
 } from '@utils/const';
 
 import s from './Footer.module.scss';
-import BlockContainer from '@modules/layout/components/BlockContainer';
-import Logo from '@modules/common/components/Logo';
 
 const Footer = () => {
 	const currentYear = new Date().getFullYear();
@@ -17,11 +18,13 @@ const Footer = () => {
 			isBlueBackground
 			containerElementTag="footer"
 		>
-			<Logo className={s.logo}/>
-			<p>Товариство з обмеженою відповідальністю <br/> «Київський ліцей
-				авіаційних та інформаційних технологій» </p>
+			<Logo className={s.logo} />
 			<p>
-				{COMPANY_EDRPOU} <br/>
+				Товариство з обмеженою відповідальністю <br /> «Київський ліцей авіаційних
+				та інформаційних технологій»{' '}
+			</p>
+			<p>
+				{COMPANY_EDRPOU} <br />
 				{currentYear}/ Всі права захищені
 			</p>
 			<p className={s.signature}>

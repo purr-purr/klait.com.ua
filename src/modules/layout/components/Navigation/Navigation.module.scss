@@ -70,7 +70,8 @@
 		height: 25px;
 		opacity: 0;
 		transform: translateX(-20px);
-		background: url('../../../../../public/assets/icon-arrow-left.svg') no-repeat, center center;
+		background: url('../../../../../public/assets/icon-arrow-left.svg') no-repeat,
+			center center;
 		transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
 	}
 
@@ -103,14 +104,14 @@
 	padding-right: 60px;
 
 	@include media($tablet-bp) {
-
 	}
 
 	&Button {
 		margin-top: 40px;
 	}
 
-	a, p {
+	a,
+	p {
 		display: block;
 		text-decoration: none;
 		font-size: 14px;

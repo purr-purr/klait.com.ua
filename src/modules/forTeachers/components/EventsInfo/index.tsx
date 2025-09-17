@@ -1,49 +1,54 @@
-import s from './EventsInfo.module.scss';
-import BlockContainer from '@modules/layout/components/BlockContainer';
-import BlockTitle from '@modules/common/components/BlockTitle';
-import BlockHeader from '@modules/common/components/BlockHeader';
-
-import Button from '@modules/common/components/Button';
 import { FC, useState } from 'react';
+
 import { events } from '@data/events';
+import BlockHeader from '@modules/common/components/BlockHeader';
+import BlockTitle from '@modules/common/components/BlockTitle';
+import Button from '@modules/common/components/Button';
 import EventCard from '@modules/forTeachers/components/EventCard';
-import "keen-slider/keen-slider.min.css";
+import BlockContainer from '@modules/layout/components/BlockContainer';
+
+import s from './EventsInfo.module.scss';
+
+import 'keen-slider/keen-slider.min.css';
 import ModalLayout from '@modules/common/components/ModalLayout';
 import Slider from '@modules/common/components/Slider';
-import { KeenSliderInstance } from 'keen-slider/react';
-
-import ICON_TIME from '../../assets/events-time.png';
-import ICON_FOLDER from '../../assets/events-folder.png';
 import cn from 'classnames';
 
+import ICON_FOLDER from '../../assets/events-folder.png';
+import ICON_TIME from '../../assets/events-time.png';
+import { openExternalLink } from '@utils/formatters';
+import { COMPANY_CALLBACK_FORM } from '@utils/const';
+
 const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
-	const [inst, setInst] = useState<KeenSliderInstance | null>(null);
 	const [openModal, setOpenModal] = useState<number | null>(null);
 	const [isDisplayedFullList, setIsDisplayedFullList] = useState<boolean>(false);
 	const [isFutureEvents, setIsFutureEvents] = useState<boolean>(true);
+	const [isTabChanged, setTabChanged] = useState<boolean>(false);
 
 	const parseDate = (date: string): Date => {
-		const [day, month, year] = date.split(".").map(Number);
+		const [day, month, year] = date.split('.').map(Number);
 		return new Date(year, month - 1, day);
 	};
 
 	const today = new Date();
 
 	const pastEvents = events
-		.filter(event => parseDate(event.date).getTime() < today.getTime())
+		.filter((event) => parseDate(event.date).getTime() < today.getTime())
 		.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
 
 	const futureEvents = events
-		.filter(e => parseDate(e.date) >= today)
+		.filter((e) => parseDate(e.date) >= today)
 		.sort((a, b) => parseDate(a.date).getTime() - parseDate(b.date).getTime());
 
 	const userSortedEvents = isFutureEvents ? futureEvents : pastEvents;
-	const eventsList = isDisplayedFullList ? userSortedEvents : userSortedEvents.slice(0, 6);
+	const eventsList = isDisplayedFullList
+		? userSortedEvents
+		: userSortedEvents.slice(0, 6);
 	const isSeeMoreBtn = !isDisplayedFullList && userSortedEvents.length > 6;
 
 	const handleTabButtonClick = (state: boolean) => {
 		setIsFutureEvents(state);
-		isCarousel && inst?.moveToIdx(0);
+		setTabChanged(!isTabChanged);
 	};
 
 	return (
@@ -73,8 +78,8 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 			</div>
 
 			{isCarousel ? (
-				<Slider onInstance={setInst} className={s.list}>
-					{eventsList.map((item, index) =>
+				<Slider className={s.list} isTabChanged={isTabChanged}>
+					{eventsList.map((item, index) => (
 						<EventCard
 							className="keen-slider__slide"
 							key={item.title + index}
@@ -82,11 +87,11 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 							index={index}
 							setOpenModal={setOpenModal}
 						/>
-					)}
+					))}
 				</Slider>
 			) : (
 				<ul className={cn(s.listStatic)}>
-					{eventsList.map((item, index) =>
+					{eventsList.map((item, index) => (
 						<EventCard
 							className={s.listStaticItem}
 							key={item.title + index}
@@ -94,31 +99,32 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 							index={index}
 							setOpenModal={setOpenModal}
 						/>
-					)}
+					))}
 				</ul>
 			)}
 
-			{eventsList.map((item, index) =>
+			{eventsList.map((item, index) => (
 				<ModalLayout
 					key={index}
 					isOpen={openModal === index}
 					onClose={() => setOpenModal(null)}
 				>
 					<div dangerouslySetInnerHTML={{__html: item.fullDesc}}/>
-					<Button className={s.modalButton} text="Приєднатися до команди"/>
+					<Button className={s.modalButton} text="Записатись на зустріч"
+					        onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}/>
 				</ModalLayout>
-			)}
+			))}
 
-			{isSeeMoreBtn && !isCarousel &&
+			{isSeeMoreBtn && !isCarousel && (
 				<Button
 					className={s.seeMoreButton}
 					text="Дивитися більше"
 					type="white"
 					onClick={() => setIsDisplayedFullList(true)}
 				/>
-			}
+			)}
 		</BlockContainer>
 	);
-}
+};
 
 export default EventsInfo;

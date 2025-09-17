@@ -1,21 +1,19 @@
 import {
 	createContext,
 	FC,
-	type ReactNode,
 	useCallback,
-	useState
+	useState,
+	type ReactNode,
 } from 'react';
 
-import type {
-	IHeaderContext
-} from '@modules/layout/context/HeaderContext/interface';
+import type { IHeaderContext } from '@modules/layout/context/HeaderContext/interface';
 
 const HeaderContext = createContext<IHeaderContext>({
 	isMobileNavMode: false,
 	handleMobileNavMode: () => {},
 });
 
-const HeaderContextWrapper: FC<{ children: ReactNode }> = ({children}) => {
+const HeaderContextWrapper: FC<{ children: ReactNode }> = ({ children }) => {
 	const [isMobileNavMode, setIsMobileNavMode] = useState<boolean>(false);
 
 	const handleMobileNavMode = useCallback((value: boolean) => {

@@ -1,6 +1,8 @@
-import { createElement, FC, ReactNode } from "react";
-import s from "./BlockContainer.module.scss";
-import cn from "classnames";
+import { createElement, FC, ReactNode } from 'react';
+
+import cn from 'classnames';
+
+import s from './BlockContainer.module.scss';
 
 const BlockContainer: FC<{
 	children: ReactNode;
@@ -17,21 +19,21 @@ const BlockContainer: FC<{
 	isBlueBackground = false,
 	containerElementTag = 'section',
 	innerElementTag = 'div',
-	anchor
+	anchor,
 }) => {
 	return createElement(
 		containerElementTag,
 		{
 			className: cn(isBlueBackground && s.container, containerClassName),
-			id: anchor
+			id: anchor,
 		},
 		createElement(
 			innerElementTag,
 			{
-				className: cn(s.inner, innerClassName)
+				className: cn(s.inner, innerClassName),
 			},
-			children
-		)
+			children,
+		),
 	);
 };
 

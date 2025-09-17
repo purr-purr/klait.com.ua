@@ -1,9 +1,10 @@
-import s from './ForTeachers.module.scss';
+import BlockTitle from '@modules/common/components/BlockTitle';
+import EventsInfo from '@modules/forTeachers/components/EventsInfo';
+import Vacancies from '@modules/forTeachers/components/Vacancies';
 import Contacts from '@modules/home/components/Contacts';
 import BlockContainer from '@modules/layout/components/BlockContainer';
-import BlockTitle from '@modules/common/components/BlockTitle';
-import Vacancies from '@modules/forTeachers/components/Vacancies';
-import EventsInfo from '@modules/forTeachers/components/EventsInfo';
+
+import s from './ForTeachers.module.scss';
 
 const ForTeachers = () => {
 	return (
@@ -16,24 +17,23 @@ const ForTeachers = () => {
 					highlightCount={2}
 				/>
 
-				<p className={s.introDesc}>Ми шукаємо натхненних і професійних
-					педагогів, які
-					хочуть
-					розвиватися, ділитися досвідом та створювати простір, де дітям цікаво
-					вчитися. Разом ми формуємо сучасне освітнє середовище, де важливі як
-					знання, так і емоційна підтримка.</p>
+				<p className={s.introDesc}>
+					Ми шукаємо натхненних і професійних педагогів, які хочуть розвиватися,
+					ділитися досвідом та створювати простір, де дітям цікаво вчитися. Разом ми
+					формуємо сучасне освітнє середовище, де важливі як знання, так і емоційна
+					підтримка.
+				</p>
 			</article>
 
-			<Vacancies/>
+			<Vacancies />
 
-			<EventsInfo isCarousel={false}/>
+			<EventsInfo isCarousel={false} />
 
 			<BlockContainer isBlueBackground>
-				<Contacts/>
+				<Contacts />
 			</BlockContainer>
 		</>
-
 	);
-}
+};
 
 export default ForTeachers;

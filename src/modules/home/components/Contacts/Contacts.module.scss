@@ -35,7 +35,7 @@
 	max-width: 952px;
 	width: 100%;
 	height: 330px;
-	@include border-radius-16;;
+	@include border-radius-16;
 	overflow: hidden;
 	position: relative;
 	z-index: 1;
@@ -53,17 +53,21 @@
 		width: 100%;
 		height: 100%;
 		background: rgb(114 180 255);
-		background: linear-gradient(157deg, rgba(114, 180, 255, 1) 0%, rgba(3, 66, 139, 1) 100%);
-		opacity: .1;
+		background: linear-gradient(
+			157deg,
+			rgba(114, 180, 255, 1) 0%,
+			rgba(3, 66, 139, 1) 100%
+		);
+		opacity: 0.1;
 		z-index: 2;
 		pointer-events: none;
-		transition: opacity .4s ease-in-out;
+		transition: opacity 0.4s ease-in-out;
 	}
 
 	&:hover {
 		&:after {
 			opacity: 0;
-			transition: opacity .4s ease-in-out;
+			transition: opacity 0.4s ease-in-out;
 		}
 	}
 }
@@ -92,7 +96,8 @@
 			cursor: pointer;
 		}
 
-		dd, a {
+		dd,
+		a {
 			display: inline-block;
 			font-size: 18px;
 			margin-bottom: 16px;
@@ -102,5 +107,4 @@
 			}
 		}
 	}
-
 }

@@ -43,7 +43,8 @@
 		margin-inline-end: 24px;
 	}
 
-	&Address, &Phone {
+	&Address,
+	&Phone {
 		color: var(--main-text);
 		text-decoration: none;
 	}

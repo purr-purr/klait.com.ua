@@ -53,12 +53,17 @@
 
 @mixin background-gradient {
 	color: var(--white);
-	background: linear-gradient(270deg, var(--second-primary) 50%, var(--primary) 100%);
+	background: linear-gradient(
+		270deg,
+		var(--second-primary) 50%,
+		var(--primary) 100%
+	);
 	background-size: 1000% auto;
 	background-position-x: -2px;
 	transition: background-size 0.5s ease-in-out;
 
-	&.active, &:hover {
+	&.active,
+	&:hover {
 		color: var(--white);
 		transition: background-size 0.5s ease-in-out;
 		background-size: 235% auto;

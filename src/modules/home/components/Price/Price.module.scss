@@ -8,7 +8,7 @@
 
 .inner {
 	@include flex;
-	@include border-radius-16;;
+	@include border-radius-16;
 	overflow: hidden;
 
 	@include media($tablet-bp) {
@@ -39,7 +39,7 @@
 	max-width: 468px;
 	width: 100%;
 	background-color: var(--primary);
-	@include border-radius-16;;
+	@include border-radius-16;
 	color: var(--white);
 
 	@include media($laptop-bp) {
@@ -110,7 +110,8 @@
 .discounts {
 	width: 100%;
 	padding: 40px;
-	background: var(--white) url("../../assets/price-bg.png") no-repeat bottom right;
+	background: var(--white) url('../../assets/price-bg.png') no-repeat bottom
+		right;
 	background-size: 264px 361px;
 
 	@include media($laptop-bp) {

@@ -1,25 +1,28 @@
 import { useContext, useEffect, useRef } from 'react';
 import Link from 'next/link';
 
+import { navigationList } from '@data/navigation';
+import Button from '@modules/common/components/Button';
+import Logo from '@modules/common/components/Logo';
+import NavigationButton from '@modules/layout/components/NavigationButton';
 import { HeaderContext } from '@modules/layout/context/HeaderContext';
 import cn from 'classnames';
 
-import type { INavigationList } from '@utils/types';
-
-import s from './Navigation.module.scss';
-import NavigationButton from '@modules/layout/components/NavigationButton';
 import useMediaQuery from '@modules/common/hooks/useMediaQuery';
+
 import {
 	COMPANY_ADDRESS,
+	COMPANY_CALLBACK_FORM,
 	COMPANY_DISPLAYED_PHONE,
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE,
 	TABLET_BREAKPOINT
 } from '@utils/const';
-import Logo from '@modules/common/components/Logo';
-import Button from '@modules/common/components/Button';
-import { navigationList } from '@data/navigation';
+import type { INavigationList } from '@utils/types';
+
+import s from './Navigation.module.scss';
+import { openExternalLink } from '@utils/formatters';
 
 const Navigation = () => {
 	const isMobile = useMediaQuery(TABLET_BREAKPOINT);
@@ -48,8 +51,8 @@ const Navigation = () => {
 			}
 		}
 
-		document.addEventListener("mousedown", handleClickOutside);
-		return () => document.removeEventListener("mousedown", handleClickOutside);
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => document.removeEventListener('mousedown', handleClickOutside);
 	}, []);
 
 	return (
@@ -57,10 +60,8 @@ const Navigation = () => {
 			{!isMobileNavMode && <NavigationButton/>}
 
 			{isMobileNavMode && (
-				<nav
-					ref={navRef}
-					className={cn(s.container, isMobileNavMode && s.active)}
-				>
+				<nav ref={navRef}
+				     className={cn(s.container, isMobileNavMode && s.active)}>
 					<NavigationButton/>
 					<Logo onClick={() => handleMobileNavMode(false)} isWhiteLogo/>
 
@@ -83,19 +84,25 @@ const Navigation = () => {
 					</ul>
 
 					<div className={s.contacts}>
-						<a href={`tel:${COMPANY_PHONE}`} target="_blank"
-						   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
+						<a href={`tel:${COMPANY_PHONE}`} target="_blank" rel="noreferrer">
+							{COMPANY_DISPLAYED_PHONE}
+						</a>
 						<p>{COMPANY_SCHEDULE}</p>
-						<a href={COMPANY_MAP_LINK} target="_blank"
-						   rel="noreferrer">{COMPANY_ADDRESS}</a>
+						<a href={COMPANY_MAP_LINK} target="_blank" rel="noreferrer">
+							{COMPANY_ADDRESS}
+						</a>
 
-						<Button className={s.contactsButton} text="Записатись на зустріч"
-						        type="white"/>
+						<Button
+							className={s.contactsButton}
+							onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}
+							text="Записатись на зустріч"
+							type="white"
+						/>
 					</div>
 				</nav>
 			)}
 		</>
-	)
+	);
 };
 
 export default Navigation;

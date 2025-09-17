@@ -1,7 +1,8 @@
 .container {
 	height: 900px;
 	margin-top: -89px;
-	background: #F4F6FA linear-gradient(176deg, #F4F6FA 0%, #F2F2FC 68%, #e0daf9 100%);
+	background: #f4f6fa
+		linear-gradient(176deg, #f4f6fa 0%, #f2f2fc 68%, #e0daf9 100%);
 
 	@media only screen and (max-height: 700px) {
 		min-height: 100vh;
@@ -54,7 +55,7 @@
 			top: -87px;
 			width: 206px;
 			height: 160px;
-			background: url("../../assets/title-decoration.png") no-repeat center center;
+			background: url('../../assets/title-decoration.png') no-repeat center center;
 			background-size: 100% 100%;
 			z-index: -1;
 

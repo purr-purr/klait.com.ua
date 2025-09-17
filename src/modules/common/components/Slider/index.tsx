@@ -1,10 +1,13 @@
-import { FC, MouseEventHandler, ReactNode, useState } from 'react';
+import { FC, MouseEventHandler, ReactNode, useEffect, useState } from 'react';
+
+import cn from 'classnames';
+import { useKeenSlider } from 'keen-slider/react';
+
+import useMediaQuery from '@modules/common/hooks/useMediaQuery';
+
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
 
 import s from './Slider.module.scss';
-import cn from 'classnames';
-import { KeenSliderInstance, useKeenSlider } from 'keen-slider/react';
-import useMediaQuery from '@modules/common/hooks/useMediaQuery';
-import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
 
 const ArrowButton = (props: {
 	disabled: boolean;
@@ -14,69 +17,79 @@ const ArrowButton = (props: {
 	return (
 		<button
 			onClick={props.onClick}
-			className={cn(s.arrow, props.left && s[`arrow--left`], props.disabled && s.disabled)}
+			className={cn(
+				s.arrow,
+				props.left && s[`arrow--left`],
+				props.disabled && s.disabled,
+			)}
 		/>
-	)
+	);
 };
 
 const Slider: FC<{
 	className?: string;
 	children?: ReactNode;
 	moveToSlide?: number;
-	onInstance?: (inst: KeenSliderInstance) => void;
-}> = ({
-	children,
-	moveToSlide,
-	onInstance,
-	className
-}) => {
+	isTabChanged?: boolean;
+}> = ({ children, moveToSlide, className, isTabChanged }) => {
 	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
 	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
 	const [currentSlide, setCurrentSlide] = useState(0);
 	const [loaded, setLoaded] = useState(false);
-	const [sliderRef, instanceRef] = useKeenSlider<HTMLUListElement>({
+
+	const sliderInitOptions = {
 		initial: moveToSlide ?? 0,
-		slideChanged(slider) {
-			console.log(`slide`, slider)
+		slideChanged(slider: any) {
 			setCurrentSlide(slider.track.details.rel);
 		},
-		created(slider) {
-			onInstance?.(slider);
-			setLoaded(true)
+		created() {
+			setLoaded(true);
 		},
 		breakpoints: {
 			'(max-width: 1024px)': {
 				slides: {
 					perView: 2,
-					spacing: 15
-				}
+					spacing: 15,
+				},
 			},
 			'(max-width: 600px)': {
 				slides: {
 					perView: 1,
-					spacing: 15
-				}
-			}
+					spacing: 15,
+				},
+			},
 		},
 		slides: {
 			perView: 3,
-			spacing: 15
-		}
-	})
+			spacing: 15,
+		},
+	};
+	const [sliderRef, instanceRef] =
+		useKeenSlider<HTMLUListElement>(sliderInitOptions);
 
-	// const currentSlideCount2 = isTablet ? currentSlide + 2 : isMobile ? currentSlide : currentSlide * 2;
-	const currentSlideCount = isMobile ? currentSlide + 1 : isTablet ? currentSlide + 2 : currentSlide * 2;
-
-	// const nextButtonDisabled2 = currentSlide * 2 === instanceRef.current?.track.details.slides.length
+	const currentSlideCount = isMobile
+		? currentSlide + 1
+		: isTablet
+		? currentSlide + 2
+		: currentSlide * 2;
 	const getSlidesTotalCount = instanceRef.current?.track.details.slides.length;
-	// const c = (instanceRef.current?.track?.details?.slides.length ?? 0) - 1;
 	const nextButtonDisabled = currentSlideCount === getSlidesTotalCount;
-	console.log(`isTablet`, isTablet)
-	console.log(`isMobile`, isMobile)
-	console.log(``, currentSlideCount, getSlidesTotalCount);
+
+	useEffect(() => {
+		instanceRef.current?.update(
+			{
+				...sliderInitOptions,
+				slideChanged(slider) {
+					setCurrentSlide(slider.track.details.rel);
+				},
+			},
+			0,
+		);
+	}, [isTabChanged]);
+
 	return (
 		<>
-			<ul className={cn(className, "keen-slider")} ref={sliderRef}>
+			<ul className={cn(className, 'keen-slider')} ref={sliderRef}>
 				{children}
 			</ul>
 
@@ -102,6 +115,6 @@ const Slider: FC<{
 			)}
 		</>
 	);
-}
+};
 
 export default Slider;

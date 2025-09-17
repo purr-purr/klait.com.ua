@@ -21,7 +21,7 @@
 		right: -143px;
 		width: 485px;
 		height: 344px;
-		background: url("../../assets/schedule-plane.png") no-repeat center center;
+		background: url('../../assets/schedule-plane.png') no-repeat center center;
 		background-size: 100% 100%;
 		z-index: 1;
 
@@ -45,7 +45,7 @@
 		left: -70px;
 		width: 152px;
 		height: 169px;
-		background: url("../../assets/schedule-signature.png") no-repeat center center;
+		background: url('../../assets/schedule-signature.png') no-repeat center center;
 		background-size: 100% 100%;
 		z-index: 1;
 
@@ -97,7 +97,7 @@
 
 	&Item {
 		padding: 22px 30px;
-		@include border-radius-16;;
+		@include border-radius-16;
 		background-color: var(--white);
 
 		@include media($tablet-bp) {

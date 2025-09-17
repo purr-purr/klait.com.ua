@@ -25,7 +25,7 @@
 		flex-direction: column;
 		padding: 40px;
 		min-height: 330px;
-		@include border-radius-16;;
+		@include border-radius-16;
 		background-color: var(--white);
 
 		@include media($laptop-bp) {
@@ -40,7 +40,8 @@
 		&:nth-child(1) {
 			grid-column: 1 / 3;
 			grid-row: 1 / 2;
-			background: var(--white) url("../../assets/approach-first-item.png") no-repeat bottom right;
+			background: var(--white) url('../../assets/approach-first-item.png')
+				no-repeat bottom right;
 			background-size: 343px 182px;
 
 			@include media($pc-bp) {
@@ -69,7 +70,8 @@
 		&:nth-child(2) {
 			grid-column: 3 / 3;
 			grid-row: 1 / 2;
-			background: var(--primary) url("../../assets/approach-item-bg.png") no-repeat bottom right;
+			background: var(--primary) url('../../assets/approach-item-bg.png') no-repeat
+				bottom right;
 			background-size: 250px 228px;
 			color: var(--white);
 

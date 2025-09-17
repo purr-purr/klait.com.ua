@@ -1,16 +1,20 @@
-import s from './Contacts.module.scss';
+import BlockHeader from '@modules/common/components/BlockHeader';
+import BlockTitle from '@modules/common/components/BlockTitle';
+import Button from '@modules/common/components/Button';
+import BlockContainer from '@modules/layout/components/BlockContainer';
+
 import {
 	COMPANY_ADDRESS,
+	COMPANY_CALLBACK_FORM,
 	COMPANY_DISPLAYED_PHONE,
 	COMPANY_MAP_EMBED_LINK,
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE
-} from "@utils/const";
-import BlockTitle from '@modules/common/components/BlockTitle';
-import BlockContainer from '@modules/layout/components/BlockContainer';
-import BlockHeader from '@modules/common/components/BlockHeader';
-import Button from '@modules/common/components/Button';
+} from '@utils/const';
+
+import s from './Contacts.module.scss';
+import { openExternalLink } from '@utils/formatters';
 
 const Contacts = () => {
 	return (
@@ -25,8 +29,9 @@ const Contacts = () => {
 						<dt>Контактний телефон</dt>
 						<br/>
 						<dd>
-							<a href={`tel:${COMPANY_PHONE}`} target="_blank"
-							   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
+							<a href={`tel:${COMPANY_PHONE}`} target="_blank" rel="noreferrer">
+								{COMPANY_DISPLAYED_PHONE}
+							</a>
 						</dd>
 						<br/>
 						<dt>Графік роботи</dt>
@@ -36,12 +41,14 @@ const Contacts = () => {
 						<dt>Адреса</dt>
 						<br/>
 						<dd>
-							<a href={COMPANY_MAP_LINK} target="_blank"
-							   rel="noreferrer">{COMPANY_ADDRESS}</a>
+							<a href={COMPANY_MAP_LINK} target="_blank" rel="noreferrer">
+								{COMPANY_ADDRESS}
+							</a>
 						</dd>
 					</dl>
 
-					<Button text="Записатись на зустріч"/>
+					<Button text="Записатись на зустріч"
+					        onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}/>
 				</article>
 
 				<div className={s.map}>

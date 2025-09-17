@@ -4,26 +4,26 @@ export const navigationList: INavigationList[] = [
 	{
 		title: 'Про ліцей',
 		path: '/#about',
-		isActive: true
+		isActive: true,
 	},
 	{
 		title: 'Методики',
 		path: '/#aproaches',
-		isActive: true
+		isActive: true,
 	},
 	{
 		title: 'Вартість',
 		path: '/#price',
-		isActive: true
+		isActive: true,
 	},
 	{
 		title: 'Для вчителів',
 		path: '/for-teachers',
-		isActive: true
+		isActive: true,
 	},
 	{
 		title: 'Документи',
 		path: '/documents',
-		isActive: true
-	}
+		isActive: true,
+	},
 ];

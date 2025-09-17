@@ -22,7 +22,8 @@
 		color: var(--primary);
 		border-color: var(--primary);
 
-		&.active, &:hover {
+		&.active,
+		&:hover {
 			color: var(--second-primary);
 			border-color: var(--second-primary);
 		}
@@ -53,7 +54,6 @@
 		}
 	}
 
-
 	&.primary {
 		@include background-gradient;
 	}
@@ -72,7 +72,9 @@
 			top: -5px;
 			width: 25px;
 			height: 25px;
-			background: url('../../../../../public/assets/icon-arrow-left--primary.svg') no-repeat, center center;
+			background: url('../../../../../public/assets/icon-arrow-left--primary.svg')
+					no-repeat,
+				center center;
 			transition: all 0.3s ease-out;
 		}
 
@@ -83,7 +85,9 @@
 
 			&:after {
 				transform: rotateZ(-45deg);
-				background: url('../../../../../public/assets/icon-arrow-left--second-primary.svg') no-repeat, center center;
+				background: url('../../../../../public/assets/icon-arrow-left--second-primary.svg')
+						no-repeat,
+					center center;
 				transition: all 0.3s ease-out;
 			}
 		}

@@ -1,9 +1,9 @@
 import { FC } from 'react';
+import Image, { StaticImageData } from 'next/image';
 
 import cn from 'classnames';
 
 import s from './Button.module.scss';
-import Image, { StaticImageData } from 'next/image';
 
 const Button: FC<{
 	text: string;
@@ -18,13 +18,20 @@ const Button: FC<{
 	type = 'primary',
 	className,
 	isActiveState = false,
-	icon
+	icon,
 }) => {
 	return (
 		<button
 			onClick={onClick}
-			className={cn(s.container, s[type], className, icon && s.icon, isActiveState && s.active)}>
-			{icon && <Image className={s.icon} src={icon} alt="icon"/>}
+			className={cn(
+				s.container,
+				s[type],
+				className,
+				icon && s.icon,
+				isActiveState && s.active,
+			)}
+		>
+			{icon && <Image className={s.icon} src={icon} alt="icon" />}
 			{text}
 		</button>
 	);

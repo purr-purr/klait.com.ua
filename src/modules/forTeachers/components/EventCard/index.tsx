@@ -1,9 +1,12 @@
-import { FC } from "react";
-import Image, { StaticImageData } from "next/image";
-import s from "./EventCard.module.scss";
+import { FC } from 'react';
+import Image, { StaticImageData } from 'next/image';
+
 import Button from '@modules/common/components/Button';
-import EVENT_POSTER from '@modules/forTeachers/assets/events-photo.png';
 import cn from 'classnames';
+
+import s from './EventCard.module.scss';
+
+import EVENT_POSTER from '@modules/forTeachers/assets/events-photo.png';
 
 export type EventItem = {
 	title: string;
@@ -18,12 +21,7 @@ const EventCard: FC<{
 	item: EventItem;
 	index: number;
 	setOpenModal: (index: number | null) => void;
-}> = ({
-	item,
-	index,
-	setOpenModal,
-	className
-}) => {
+}> = ({ item, index, setOpenModal, className }) => {
 	return (
 		<li className={cn(s.container, className)}>
 			<Image
@@ -45,7 +43,7 @@ const EventCard: FC<{
 				</footer>
 			</article>
 		</li>
-	)
+	);
 };
 
 export default EventCard;

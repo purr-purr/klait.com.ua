@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 import Logo from '@modules/common/components/Logo';
+import BlockContainer from '@modules/layout/components/BlockContainer';
+import Navigation from '@modules/layout/components/Navigation';
 import { HeaderContextWrapper } from '@modules/layout/context/HeaderContext';
 import cn from 'classnames';
 
@@ -13,12 +15,10 @@ import {
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE,
-	TABLET_BREAKPOINT
+	TABLET_BREAKPOINT,
 } from '@utils/const';
 
 import s from './Header.module.scss';
-import Navigation from '@modules/layout/components/Navigation';
-import BlockContainer from '@modules/layout/components/BlockContainer';
 
 const Header = () => {
 	const isMobile = useMediaQuery(TABLET_BREAKPOINT);
@@ -44,24 +44,34 @@ const Header = () => {
 			containerClassName={cn(s.container, isWhiteHeader && s.active)}
 			innerClassName={s.inner}
 		>
-			<Logo/>
+			<Logo />
 
 			<HeaderContextWrapper>
 				{!isMobile && (
 					<div className={s.contacts}>
-						<a className={s.contactsAddress} href={COMPANY_MAP_LINK}
-						   target="_blank"
-						   rel="noreferrer">{COMPANY_ADDRESS}</a>
+						<a
+							className={s.contactsAddress}
+							href={COMPANY_MAP_LINK}
+							target="_blank"
+							rel="noreferrer"
+						>
+							{COMPANY_ADDRESS}
+						</a>
 
 						<div>
-							<a className={s.contactsPhone} href={`tel:${COMPANY_PHONE}`}
-							   target="_blank"
-							   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
+							<a
+								className={s.contactsPhone}
+								href={`tel:${COMPANY_PHONE}`}
+								target="_blank"
+								rel="noreferrer"
+							>
+								{COMPANY_DISPLAYED_PHONE}
+							</a>
 							<p>{COMPANY_SCHEDULE}</p>
 						</div>
 					</div>
 				)}
-				<Navigation/>
+				<Navigation />
 			</HeaderContextWrapper>
 		</BlockContainer>
 	);

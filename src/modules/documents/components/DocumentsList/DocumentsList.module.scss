@@ -35,7 +35,9 @@
 
 		&:after {
 			transform: rotateZ(-45deg);
-			background: url('../../../../../public/assets/icon-arrow-left--second-primary.svg') no-repeat, center center;
+			background: url('../../../../../public/assets/icon-arrow-left--second-primary.svg')
+					no-repeat,
+				center center;
 			transition: all 0.3s ease-in-out;
 		}
 	}
