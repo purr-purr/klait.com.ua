@@ -1,26 +1,41 @@
 .container {
 	padding-block: 100px;
+
+	@include media($tablet-bp) {
+		padding-block: 70px;
+	}
 }
 
 .list {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(260px, 460px));
-	grid-template-rows: auto;
-	row-gap: 39px;
-	column-gap: 24px;
+	@include flex($gap: 24px);
 	list-style-type: none;
+
+	@include media($tablet-bp) {
+		flex-direction: column;
+	}
 }
 
 .item {
 	background-color: var(--white);
 	padding: 40px;
+	height: fit-content;
+	width: calc(33% - 13px);
 	@include border-radius-16;
+
+	@include media($tablet-bp) {
+		padding: 30px;
+		width: 100%;
+	}
 }
 
 .title {
 	font-family: 'Montseratt', sans-serif;
 	margin-bottom: 24px;
 	font-size: 24px;
+
+	@include media($tablet-bp) {
+		font-size: 18px;
+	}
 }
 
 .button {

@@ -3,6 +3,12 @@
 	position: absolute;
 	right: 40px;
 	top: 60px;
+
+	@include media($mobile-bp) {
+		bottom: -80px;
+		left: 30px;
+		top: unset;
+	}
 }
 
 .arrow {

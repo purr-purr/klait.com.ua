@@ -1,5 +1,9 @@
 .container {
 	padding-block: 112px 150px;
+
+	@include media($mobile-bp) {
+		padding-block: 70px;
+	}
 }
 
 .inner {
@@ -8,6 +12,11 @@
 	@include media($laptop-bp) {
 		flex-direction: column;
 		margin-top: -50px;
+		gap: 24px;
+	}
+
+	@include media($tablet-bp) {
+		margin-top: 0;
 	}
 }
 
@@ -29,18 +38,26 @@
 	grid-template-rows: repeat(2, auto);
 	gap: 25px;
 
+	@include media($tablet-bp) {
+		grid-template-columns: 1fr;
+	}
+
 	&Item {
 		@include flex($gap: 12px);
 		padding: 40px 40px 40px 12px;
 		@include border-radius-16;;
 		background-color: var(--blue-bg);
 
+		@include media($tablet-bp) {
+			padding: 30px 30px 30px 10px;
+		}
+
 		h4 {
 			font-size: 20px;
 			font-weight: 700;
 			margin-bottom: 16px;
 
-			@include media($mobile-bp) {
+			@include media($tablet-bp) {
 				font-size: 18px;
 			}
 		}
@@ -50,5 +67,10 @@
 		display: block;
 		width: 80px;
 		height: 80px;
+
+		@include media($tablet-bp) {
+			width: 60px;
+			height: 60px;
+		}
 	}
 }

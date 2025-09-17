@@ -15,14 +15,14 @@ import {
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE,
-	MOBILE_BREAKPOINT
+	TABLET_BREAKPOINT
 } from '@utils/const';
 import Logo from '@modules/common/components/Logo';
 import Button from '@modules/common/components/Button';
 import { navigationList } from '@data/navigation';
 
 const Navigation = () => {
-	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isMobile = useMediaQuery(TABLET_BREAKPOINT);
 	const {
 		isMobileNavMode,
 		handleMobileNavMode

@@ -13,7 +13,7 @@ import {
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE,
-	MOBILE_BREAKPOINT
+	TABLET_BREAKPOINT
 } from '@utils/const';
 
 import s from './Header.module.scss';
@@ -21,7 +21,7 @@ import Navigation from '@modules/layout/components/Navigation';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 
 const Header = () => {
-	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isMobile = useMediaQuery(TABLET_BREAKPOINT);
 	const [scrollTop, setScrollTop] = useState<number>(0);
 	const router = useRouter();
 	const scrollTopGap = isMobile ? 20 : 100;
@@ -47,18 +47,20 @@ const Header = () => {
 			<Logo/>
 
 			<HeaderContextWrapper>
-				<div className={s.contacts}>
-					<a className={s.contactsAddress} href={COMPANY_MAP_LINK}
-					   target="_blank"
-					   rel="noreferrer">{COMPANY_ADDRESS}</a>
-
-					<div>
-						<a className={s.contactsPhone} href={`tel:${COMPANY_PHONE}`}
+				{!isMobile && (
+					<div className={s.contacts}>
+						<a className={s.contactsAddress} href={COMPANY_MAP_LINK}
 						   target="_blank"
-						   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
-						<p>{COMPANY_SCHEDULE}</p>
+						   rel="noreferrer">{COMPANY_ADDRESS}</a>
+
+						<div>
+							<a className={s.contactsPhone} href={`tel:${COMPANY_PHONE}`}
+							   target="_blank"
+							   rel="noreferrer">{COMPANY_DISPLAYED_PHONE}</a>
+							<p>{COMPANY_SCHEDULE}</p>
+						</div>
 					</div>
-				</div>
+				)}
 				<Navigation/>
 			</HeaderContextWrapper>
 		</BlockContainer>

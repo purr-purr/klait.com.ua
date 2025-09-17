@@ -46,7 +46,7 @@
 	max-width: 1520px;
 	width: 100%;
 
-	@include media($mobile-bp) {
+	@include media($tablet-bp) {
 		padding-inline: 20px;
 	}
 }

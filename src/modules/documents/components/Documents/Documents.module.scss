@@ -1,6 +1,11 @@
 .container {
 	@include container;
 	margin-top: 130px;
+	overflow: hidden;
+
+	@include media($tablet-bp) {
+		margin-top: 70px;
+	}
 }
 
 .title {
@@ -15,17 +20,13 @@
 		background: url("../../assets/documents-title.png") no-repeat center center;
 		background-size: 100% 100%;
 		z-index: 1;
+
+		@include media($tablet-bp) {
+			display: none;
+		}
 	}
 
-	@include media($pc-bp) {
-		font-size: 44px;
-	}
-
-	@include media($laptop-bp) {
-		font-size: 40px;
-	}
-
-	@include media($mobile-bp) {
-		font-size: 32px;
+	@include media($tablet-bp) {
+		margin-bottom: 70px;
 	}
 }

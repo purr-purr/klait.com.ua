@@ -4,10 +4,14 @@
 
 .inner {
 	padding-block: 150px;
+
+	@include media($mobile-bp) {
+		padding-block: 70px;
+	}
 }
 
 .schedule {
-	@include border-radius-16;;
+	@include border-radius-16;
 	background-color: var(--blue-bg);
 	padding: 40px;
 	position: relative;
@@ -27,6 +31,13 @@
 			width: 405px;
 			height: 264px;
 		}
+
+		@include media($tablet-bp) {
+			top: -40px;
+			right: -49px;
+			width: 249px;
+			height: 178px;
+		}
 	}
 
 	@include pseudo(before) {
@@ -44,6 +55,17 @@
 			width: 102px;
 			height: 119px;
 		}
+
+		@include media($tablet-bp) {
+			bottom: -6px;
+			left: -7px;
+			width: 82px;
+			height: 91px;
+		}
+	}
+
+	@include media($tablet-bp) {
+		padding: 30px;
 	}
 }
 
@@ -55,6 +77,10 @@
 	@include media($laptop-bp) {
 		font-size: 18px;
 	}
+
+	@include media($tablet-bp) {
+		font-size: 16px;
+	}
 }
 
 .list {
@@ -65,10 +91,18 @@
 	column-gap: 24px;
 	list-style-type: none;
 
+	@include media($tablet-bp) {
+		grid-template-columns: 1fr;
+	}
+
 	&Item {
 		padding: 22px 30px;
 		@include border-radius-16;;
 		background-color: var(--white);
+
+		@include media($tablet-bp) {
+			padding: 14px 22px;
+		}
 
 		span {
 			color: var(--primary);

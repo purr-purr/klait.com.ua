@@ -8,11 +8,11 @@
 	}
 
 	@include media($laptop-bp) {
-		max-height: 750px;
+		max-height: 811px;
 	}
 
-	@include media($mobile-bp) {
-		max-height: 600px;
+	@include media($tablet-bp) {
+		max-height: 772px;
 	}
 }
 
@@ -20,6 +20,10 @@
 	@include flex($align: center);
 	position: relative;
 	height: 100%;
+
+	@include media($mobile-bp) {
+		align-items: baseline;
+	}
 }
 
 .info {
@@ -31,8 +35,12 @@
 	z-index: 2;
 	color: var(--main-text);
 
-	@include media($mobile-bp) {
+	@include media($tablet-bp) {
 		gap: 24px;
+	}
+
+	@include media($mobile-bp) {
+		margin-top: 185px;
 	}
 
 	&Title {
@@ -46,7 +54,26 @@
 			width: 206px;
 			height: 160px;
 			background: url("../../assets/title-decoration.png") no-repeat center center;
+			background-size: 100% 100%;
 			z-index: -1;
+
+			@include media($pc-bp) {
+				left: -48px;
+				top: -64px;
+				width: 181px;
+				height: 138px;
+			}
+
+			@include media($tablet-bp) {
+				left: -37px;
+				top: -53px;
+				width: 141px;
+				height: 95px;
+			}
+
+			@include media($mobile-bp) {
+				top: -40px;
+			}
 		}
 
 		@include media($pc-bp) {
@@ -57,8 +84,9 @@
 			font-size: 40px;
 		}
 
-		@include media($mobile-bp) {
+		@include media($tablet-bp) {
 			font-size: 32px;
+			max-width: 500px;
 		}
 
 		span {
@@ -71,7 +99,7 @@
 		max-width: 460px;
 		font-size: 20px;
 
-		@include media($mobile-bp) {
+		@include media($tablet-bp) {
 			font-size: 18px;
 		}
 	}
@@ -88,12 +116,21 @@
 	max-height: 801px;
 
 	@include media($laptop-bp) {
-		max-width: 854px;
-		max-height: 680px;
+		max-width: 784px;
+		max-height: 610px;
+	}
+
+	@include media($tablet-bp) {
+		max-width: 604px;
+		max-height: 510px;
+
+		//max-width: 709px;
+		//max-height: 565px;
 	}
 
 	@include media($mobile-bp) {
-		max-width: 764px;
-		max-height: 590px;
+		max-width: 100%;
+		max-height: unset;
+		height: auto;
 	}
 }

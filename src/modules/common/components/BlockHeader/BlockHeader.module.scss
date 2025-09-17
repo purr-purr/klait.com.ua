@@ -1,5 +1,9 @@
 .container {
 	@include flex(flex-start, space-between);
+
+	@include media($tablet-bp) {
+		flex-direction: column;
+	}
 }
 
 .subTitle {
@@ -12,8 +16,13 @@
 	width: fit-content;
 	margin-bottom: 24px;
 
-	@include media($mobile-bp) {
+	@include media($tablet-bp) {
 		font-size: 14px;
+	}
+
+	@include media($tablet-bp) {
+		order: -1;
+		margin-left: 36px;
 	}
 
 	@include pseudo() {

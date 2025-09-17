@@ -1,11 +1,19 @@
 .container {
 	padding-block: 100px;
+
+	@include media($mobile-bp) {
+		padding-block: 70px;
+	}
 }
 
 .inner {
 	@include flex;
 	@include border-radius-16;;
 	overflow: hidden;
+
+	@include media($tablet-bp) {
+		flex-direction: column;
+	}
 }
 
 .title {
@@ -14,6 +22,10 @@
 
 	@include media($laptop-bp) {
 		font-size: 26px;
+	}
+
+	@include media($tablet-bp) {
+		font-size: 18px;
 	}
 
 	&Desc {
@@ -34,11 +46,23 @@
 		max-width: 300px;
 	}
 
+	@include media($tablet-bp) {
+		padding: 30px;
+		max-width: unset;
+		border-top-left-radius: 0;
+		border-top-right-radius: 0;
+	}
+
 	&List {
 		@include flex($justify: space-between, $gap: 24px);
 		list-style-type: none;
 		margin-top: 80px;
 		margin-bottom: 30px;
+
+		@include media($tablet-bp) {
+			max-width: 670px;
+			margin-top: 40px;
+		}
 
 		li {
 			max-width: 128px;
@@ -47,6 +71,10 @@
 			@include media($laptop-bp) {
 				@include flex($justify: space-between);
 				flex-direction: column;
+			}
+
+			@include media($tablet-bp) {
+				max-width: 300px;
 			}
 		}
 
@@ -58,6 +86,10 @@
 			@include media($laptop-bp) {
 				font-size: 20px;
 			}
+
+			@include media($tablet-bp) {
+				font-size: 16px;
+			}
 		}
 	}
 
@@ -68,6 +100,10 @@
 	&Button {
 		margin-inline: auto;
 		display: block;
+
+		@include media($tablet-bp) {
+			margin-inline: 0;
+		}
 	}
 }
 
@@ -79,6 +115,11 @@
 
 	@include media($laptop-bp) {
 		background-size: 214px 311px;
+	}
+
+	@include media($tablet-bp) {
+		order: -1;
+		padding: 30px;
 	}
 
 	.title {
@@ -97,9 +138,27 @@
 		max-width: 670px;
 		width: 100%;
 
+		@include media($tablet-bp) {
+			margin-top: 40px;
+			align-items: baseline;
+			row-gap: 24px;
+			column-gap: 24px;
+		}
+
+		@include media($mobile-bp) {
+			grid-template-columns: 1fr;
+		}
+
 		& li {
 			max-width: 300px;
 			width: 100%;
+
+			&:last-of-type {
+				@include media($tablet-bp) {
+					margin-top: auto;
+					align-content: flex-end;
+				}
+			}
 		}
 
 		& h5 {

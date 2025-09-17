@@ -3,7 +3,7 @@
 	padding-top: 40px;
 	padding-bottom: 40px;
 
-	@include media($mobile-bp) {
+	@include media($tablet-bp) {
 		flex-direction: column;
 		align-items: flex-start;
 		gap: 12px;
@@ -31,14 +31,14 @@
 	p {
 		margin-left: 24px;
 
-		@include media($mobile-bp) {
+		@include media($tablet-bp) {
 			margin-left: 0;
 		}
 
 		&:not(:first-of-type) {
 			margin-left: auto;
 
-			@include media($mobile-bp) {
+			@include media($tablet-bp) {
 				margin-left: 0;
 			}
 		}

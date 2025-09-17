@@ -26,9 +26,6 @@ const ForTeachers = () => {
 
 			<Vacancies/>
 
-			<br/>
-			<br/>
-
 			<EventsInfo isCarousel={false}/>
 
 			<BlockContainer isBlueBackground>

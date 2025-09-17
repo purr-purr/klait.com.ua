@@ -8,7 +8,7 @@
 	min-height: 89px;
 	@include flex(center, space-between, 24px);
 
-	@include media($mobile-bp) {
+	@include media($tablet-bp) {
 		padding-block-start: 24px;
 	}
 

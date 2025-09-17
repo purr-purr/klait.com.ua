@@ -39,9 +39,25 @@ const Slider: FC<{
 			onInstance?.(slider);
 			setLoaded(true)
 		},
-		slides: {
-			perView: 3,
-			spacing: 15
+		breakpoints: {
+			'(min-width: 1025px)': {
+				slides: {
+					perView: 3,
+					spacing: 15
+				}
+			},
+			'(max-width: 1024px)': {
+				slides: {
+					perView: 2,
+					spacing: 15
+				}
+			},
+			'(max-width: 600px)': {
+				slides: {
+					perView: 1,
+					spacing: 15
+				}
+			}
 		}
 	})
 

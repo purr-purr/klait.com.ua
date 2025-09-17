@@ -1,5 +1,15 @@
 .container {
 	margin-block: 150px;
+
+	@include media($tablet-bp) {
+		margin-block: 70px;
+	}
+
+	&--large {
+		@include media($tablet-bp) {
+			margin-block: 70px 150px;
+		}
+	}
 }
 
 .inner {
@@ -15,6 +25,31 @@
 	&--static {
 		row-gap: 39px;
 		column-gap: 24px;
+
+		&Item {
+			min-width: 464px;
+			height: 481px;
+		}
+	}
+}
+
+.listStatic {
+	@include flex();
+	flex-wrap: wrap;
+	gap: 24px;
+	list-style-type: none;
+
+	&Item {
+		width: calc(33% - 13px);
+
+		@include media($tablet-bp) {
+			width: calc(50% - 13px);
+		}
+
+		@include media($mobile-bp) {
+			width: 100%;
+			gap: 0;
+		}
 	}
 }
 
@@ -26,6 +61,7 @@
 
 .tabs {
 	@include flex($gap: 17px);
+	flex-wrap: wrap;
 	margin-bottom: 24px;
 }
 

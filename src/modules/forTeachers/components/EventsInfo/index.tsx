@@ -48,7 +48,7 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 
 	return (
 		<BlockContainer
-			containerClassName={s.container}
+			containerClassName={cn(s.container, isCarousel && s[`container--large`])}
 			innerClassName={s.inner}
 		>
 			<BlockHeader subTitle="Події">
@@ -85,9 +85,10 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 					)}
 				</Slider>
 			) : (
-				<ul className={cn(s.list, s[`list--static`])}>
+				<ul className={cn(s.listStatic)}>
 					{eventsList.map((item, index) =>
 						<EventCard
+							className={s.listStaticItem}
 							key={item.title + index}
 							item={item}
 							index={index}
