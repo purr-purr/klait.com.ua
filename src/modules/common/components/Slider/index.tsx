@@ -3,6 +3,8 @@ import { FC, MouseEventHandler, ReactNode, useState } from 'react';
 import s from './Slider.module.scss';
 import cn from 'classnames';
 import { KeenSliderInstance, useKeenSlider } from 'keen-slider/react';
+import useMediaQuery from '@modules/common/hooks/useMediaQuery';
+import { MOBILE_BREAKPOINT, TABLET_BREAKPOINT } from '@utils/const';
 
 const ArrowButton = (props: {
 	disabled: boolean;
@@ -28,11 +30,14 @@ const Slider: FC<{
 	onInstance,
 	className
 }) => {
-	const [currentSlide, setCurrentSlide] = useState(0)
-	const [loaded, setLoaded] = useState(false)
+	const isMobile = useMediaQuery(MOBILE_BREAKPOINT);
+	const isTablet = useMediaQuery(TABLET_BREAKPOINT);
+	const [currentSlide, setCurrentSlide] = useState(0);
+	const [loaded, setLoaded] = useState(false);
 	const [sliderRef, instanceRef] = useKeenSlider<HTMLUListElement>({
 		initial: moveToSlide ?? 0,
 		slideChanged(slider) {
+			console.log(`slide`, slider)
 			setCurrentSlide(slider.track.details.rel);
 		},
 		created(slider) {
@@ -40,12 +45,6 @@ const Slider: FC<{
 			setLoaded(true)
 		},
 		breakpoints: {
-			'(min-width: 1025px)': {
-				slides: {
-					perView: 3,
-					spacing: 15
-				}
-			},
 			'(max-width: 1024px)': {
 				slides: {
 					perView: 2,
@@ -58,9 +57,20 @@ const Slider: FC<{
 					spacing: 15
 				}
 			}
+		},
+		slides: {
+			perView: 3,
+			spacing: 15
 		}
 	})
 
+	const currentSlideCount = isTablet ? currentSlide + 2 : isMobile ? currentSlide + 1 : currentSlide * 2;
+
+	// const nextButtonDisabled2 = currentSlide * 2 === instanceRef.current?.track.details.slides.length
+	const getSlidesTotalCount = instanceRef.current?.track.details.slides.length;
+	// const c = (instanceRef.current?.track?.details?.slides.length ?? 0) - 1;
+	const nextButtonDisabled = currentSlideCount === getSlidesTotalCount;
+	console.log(``, currentSlideCount, getSlidesTotalCount);
 	return (
 		<>
 			<ul className={cn(className, "keen-slider")} ref={sliderRef}>
@@ -83,10 +93,7 @@ const Slider: FC<{
 							event.stopPropagation();
 							instanceRef.current?.next();
 						}}
-						disabled={
-							currentSlide * 2 ===
-							instanceRef.current.track.details.slides.length
-						}
+						disabled={nextButtonDisabled}
 					/>
 				</nav>
 			)}
