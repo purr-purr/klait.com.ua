@@ -62,7 +62,7 @@ const Navigation = () => {
 					className={cn(s.container, isMobileNavMode && s.active)}
 				>
 					<NavigationButton/>
-					<Logo isWhiteLogo/>
+					<Logo onClick={() => handleMobileNavMode(false)} isWhiteLogo/>
 
 					<ul className={s.list}>
 						{navigationList.map(

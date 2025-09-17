@@ -19,7 +19,7 @@ const Meta: FC<{
 	const metaTitle: string = title
 		? `${title} ${COMPANY_NAME}`
 		: COMPANY_NAME + ' | ' + COMPANY_FULL_NAME;
-	const metaDesc: string = COMPANY_NAME + ' | ' + COMPANY_CATCHPHRASE;
+	const metaDesc: string = COMPANY_CATCHPHRASE;
 
 	return (
 		<Head>
@@ -28,7 +28,7 @@ const Meta: FC<{
 			<meta name="viewport" content="width=device-width, initial-scale=1"/>
 			<link href={FAVICON.src} rel="icon"/>
 			<meta content="width=device-width, initial-scale=1" name="viewport"/>
-			<meta content="#F3F3F3" name="theme-color"/>
+			<meta content="#fff" name="theme-color"/>
 			<meta content={metaTitle} name="description"/>
 			<link href={FAVICON.src} rel="apple-touch-icon"/>
 			<link href={manifestPath} rel="manifest"/>
