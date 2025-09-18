@@ -17,19 +17,16 @@ import {
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
 	COMPANY_SCHEDULE,
-	TABLET_BREAKPOINT
+	TABLET_BREAKPOINT,
 } from '@utils/const';
+import { openExternalLink } from '@utils/formatters';
 import type { INavigationList } from '@utils/types';
 
 import s from './Navigation.module.scss';
-import { openExternalLink } from '@utils/formatters';
 
 const Navigation = () => {
 	const isMobile = useMediaQuery(TABLET_BREAKPOINT);
-	const {
-		isMobileNavMode,
-		handleMobileNavMode
-	} = useContext(HeaderContext);
+	const { isMobileNavMode, handleMobileNavMode } = useContext(HeaderContext);
 
 	useEffect(() => {
 		const element = document.querySelector('html');
@@ -37,7 +34,7 @@ const Navigation = () => {
 		if (element && isMobile) {
 			element.setAttribute(
 				'style',
-				`${isMobileNavMode ? `overflow:hidden;` : ``}`
+				`${isMobileNavMode ? `overflow:hidden;` : ``}`,
 			);
 		}
 	}, [isMobileNavMode, isMobile]);
@@ -57,13 +54,12 @@ const Navigation = () => {
 
 	return (
 		<>
-			{!isMobileNavMode && <NavigationButton/>}
+			{!isMobileNavMode && <NavigationButton />}
 
 			{isMobileNavMode && (
-				<nav ref={navRef}
-				     className={cn(s.container, isMobileNavMode && s.active)}>
-					<NavigationButton/>
-					<Logo onClick={() => handleMobileNavMode(false)} isWhiteLogo/>
+				<nav ref={navRef} className={cn(s.container, isMobileNavMode && s.active)}>
+					<NavigationButton />
+					<Logo onClick={() => handleMobileNavMode(false)} isWhiteLogo />
 
 					<ul className={s.list}>
 						{navigationList.map(
@@ -79,7 +75,7 @@ const Navigation = () => {
 											{item.title}
 										</Link>
 									</li>
-								)
+								),
 						)}
 					</ul>
 

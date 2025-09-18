@@ -3,6 +3,9 @@ import BlockTitle from '@modules/common/components/BlockTitle';
 import Button from '@modules/common/components/Button';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 
+import { COMPANY_CALLBACK_FORM } from '@utils/const';
+import { importDoc, openExternalLink } from '@utils/formatters';
+
 import s from './Price.module.scss';
 
 const Price = () => {
@@ -52,6 +55,7 @@ const Price = () => {
 					</ul>
 					<Button
 						className={s.priceButton}
+						onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}
 						text="Записатись на зустріч"
 						type="white"
 					/>
@@ -71,7 +75,11 @@ const Price = () => {
 							</li>
 						))}
 						<li>
-							<Button text="Детальніше про умови" type="white" />
+							<Button
+								onClick={() => openExternalLink(importDoc('Прайс лист Додаток 1.pdf'))}
+								text="Детальніше про умови"
+								type="white"
+							/>
 						</li>
 					</ul>
 				</div>

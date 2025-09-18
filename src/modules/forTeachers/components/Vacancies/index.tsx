@@ -7,9 +7,10 @@ import Button from '@modules/common/components/Button';
 import ModalLayout from '@modules/common/components/ModalLayout';
 import BlockContainer from '@modules/layout/components/BlockContainer';
 
-import s from './Vacancies.module.scss';
-import { openExternalLink } from '@utils/formatters';
 import { COMPANY_CALLBACK_FORM } from '@utils/const';
+import { openExternalLink } from '@utils/formatters';
+
+import s from './Vacancies.module.scss';
 
 const Vacancies = () => {
 	const [openModal, setOpenModal] = useState<number | null>(null);
@@ -17,7 +18,7 @@ const Vacancies = () => {
 	return (
 		<BlockContainer isBlueBackground containerClassName={s.container}>
 			<BlockHeader subTitle="Вакансії">
-				<BlockTitle title="Зростай разом із нами"/>
+				<BlockTitle title="Зростай разом із нами" />
 			</BlockHeader>
 
 			<ul className={s.list}>
@@ -36,9 +37,12 @@ const Vacancies = () => {
 							isOpen={openModal === index}
 							onClose={() => setOpenModal(null)}
 						>
-							<div dangerouslySetInnerHTML={{__html: item.fullDesc}}/>
-							<Button className={s.modalButton} text="Приєднатися до команди"
-							        onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}/>
+							<div dangerouslySetInnerHTML={{ __html: item.fullDesc }} />
+							<Button
+								className={s.modalButton}
+								text="Приєднатися до команди"
+								onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}
+							/>
 						</ModalLayout>
 					</li>
 				))}

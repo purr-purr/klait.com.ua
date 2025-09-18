@@ -4,9 +4,9 @@
 	height: 27px;
 	text-decoration: none;
 
-	@include media($mobile-bp) {
-		width: 108px;
-		height: 24px;
+	@include media($tablet-bp) {
+		width: 100px;
+		height: 21px;
 	}
 
 	img {

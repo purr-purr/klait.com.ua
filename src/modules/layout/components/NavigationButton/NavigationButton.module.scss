@@ -9,9 +9,22 @@
 		padding: 20px 15px;
 		@include background-gradient;
 
+		@include media($tablet-bp) {
+			width: 49px;
+			height: 50px;
+			padding: 15px 10px;
+			@include flex(center, center);
+			flex-direction: column;
+		}
+
 		img {
 			width: 26px;
 			height: 17px;
+
+			@include media($tablet-bp) {
+				width: 23px;
+				height: 15px;
+			}
 		}
 	}
 
@@ -25,7 +38,8 @@
 		transition: opacity 0.3s ease-out;
 
 		@include media($laptop-bp) {
-			right: 0;
+			right: 6px;
+			top: 18px;
 		}
 
 		&:hover {

@@ -10,36 +10,36 @@ import {
 	COMPANY_MAP_EMBED_LINK,
 	COMPANY_MAP_LINK,
 	COMPANY_PHONE,
-	COMPANY_SCHEDULE
+	COMPANY_SCHEDULE,
 } from '@utils/const';
+import { openExternalLink } from '@utils/formatters';
 
 import s from './Contacts.module.scss';
-import { openExternalLink } from '@utils/formatters';
 
 const Contacts = () => {
 	return (
 		<BlockContainer innerClassName={s.container} isBlueBackground>
 			<BlockHeader subTitle="Контакти">
-				<BlockTitle title="Залишились питання?" isHighlighted={false}/>
+				<BlockTitle title="Залишились питання?" isHighlighted={false} />
 			</BlockHeader>
 
 			<div className={s.inner}>
 				<article className={s.info}>
 					<dl className={s.infoInner}>
 						<dt>Контактний телефон</dt>
-						<br/>
+						<br />
 						<dd>
 							<a href={`tel:${COMPANY_PHONE}`} target="_blank" rel="noreferrer">
 								{COMPANY_DISPLAYED_PHONE}
 							</a>
 						</dd>
-						<br/>
+						<br />
 						<dt>Графік роботи</dt>
-						<br/>
+						<br />
 						<dd>{COMPANY_SCHEDULE}</dd>
-						<br/>
+						<br />
 						<dt>Адреса</dt>
-						<br/>
+						<br />
 						<dd>
 							<a href={COMPANY_MAP_LINK} target="_blank" rel="noreferrer">
 								{COMPANY_ADDRESS}
@@ -47,8 +47,10 @@ const Contacts = () => {
 						</dd>
 					</dl>
 
-					<Button text="Записатись на зустріч"
-					        onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}/>
+					<Button
+						text="Записатись на зустріч"
+						onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}
+					/>
 				</article>
 
 				<div className={s.map}>

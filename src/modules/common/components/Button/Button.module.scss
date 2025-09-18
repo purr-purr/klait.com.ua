@@ -78,6 +78,10 @@
 			transition: all 0.3s ease-out;
 		}
 
+		@include media($tablet-bp) {
+			font-size: 14px;
+		}
+
 		&:hover {
 			color: var(--second-primary);
 			cursor: pointer;

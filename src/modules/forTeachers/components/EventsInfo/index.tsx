@@ -14,12 +14,13 @@ import ModalLayout from '@modules/common/components/ModalLayout';
 import Slider from '@modules/common/components/Slider';
 import cn from 'classnames';
 
+import { COMPANY_CALLBACK_FORM } from '@utils/const';
+import { openExternalLink } from '@utils/formatters';
+
 import ICON_FOLDER from '../../assets/events-folder.png';
 import ICON_TIME from '../../assets/events-time.png';
-import { openExternalLink } from '@utils/formatters';
-import { COMPANY_CALLBACK_FORM } from '@utils/const';
 
-const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
+const EventsInfo: FC<{ isCarousel: boolean }> = ({ isCarousel = false }) => {
 	const [openModal, setOpenModal] = useState<number | null>(null);
 	const [isDisplayedFullList, setIsDisplayedFullList] = useState<boolean>(false);
 	const [isFutureEvents, setIsFutureEvents] = useState<boolean>(true);
@@ -57,7 +58,7 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 			innerClassName={s.inner}
 		>
 			<BlockHeader subTitle="Події">
-				<BlockTitle title="Життя школи в кожній події"/>
+				<BlockTitle title="Життя школи в кожній події" />
 			</BlockHeader>
 
 			<div className={s.tabs}>
@@ -109,9 +110,12 @@ const EventsInfo: FC<{ isCarousel: boolean }> = ({isCarousel = false}) => {
 					isOpen={openModal === index}
 					onClose={() => setOpenModal(null)}
 				>
-					<div dangerouslySetInnerHTML={{__html: item.fullDesc}}/>
-					<Button className={s.modalButton} text="Записатись на зустріч"
-					        onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}/>
+					<div dangerouslySetInnerHTML={{ __html: item.fullDesc }} />
+					<Button
+						className={s.modalButton}
+						text="Записатись на зустріч"
+						onClick={() => openExternalLink(COMPANY_CALLBACK_FORM)}
+					/>
 				</ModalLayout>
 			))}
 

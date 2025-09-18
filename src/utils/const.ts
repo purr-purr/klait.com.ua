@@ -1,6 +1,5 @@
 export const MOBILE_BREAKPOINT: number = 600;
 export const TABLET_BREAKPOINT: number = 1024;
-export const LAPTOP_BREAKPOINT: number = 1200;
 export const APP_AUTHOR: string = 'Anton Shaposhnikov';
 export const APP_AUTHOR_SIGNATURE: string = 'shaposhnikov.ie';
 export const APP_AUTHOR_WEBSITE: string = `https://shaposhnikov.ie/`;

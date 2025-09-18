@@ -20,6 +20,7 @@
 		}
 
 		@include media($laptop-bp) {
+			padding-top: 40px;
 			width: 100%;
 			left: 0;
 		}
