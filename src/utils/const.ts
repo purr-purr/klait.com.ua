@@ -9,9 +9,9 @@ export const COMPANY_NAME: string = 'КЛА & IT';
 export const COMPANY_FULL_NAME: string = `«Київський ліцей авіаційних та інформаційних технологій»`;
 export const COMPANY_CATCHPHRASE: string =
 	'Початкова школа, де дітей бачать, чують і розвивають із любов’ю та знанням справи.';
-export const COMPANY_PHONE: string = '+380952323325';
 export const COMPANY_EDRPOU: string = 'ЄДРПОУ 45593094';
-export const COMPANY_DISPLAYED_PHONE: string = '+380 (95) 23 23 325';
+export const COMPANY_PHONE: string = '+380630460744';
+export const COMPANY_DISPLAYED_PHONE: string = '+380 (63) 046 07 44';
 export const COMPANY_SCHEDULE: string = 'пн-пт з 08:00 до 17:00';
 export const COMPANY_ADDRESS: string =
 	'м. Київ, Бізнес центр "GRAND STEP" вул. Польова, 24 (літ.Д)';
